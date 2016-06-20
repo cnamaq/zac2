@@ -1,0 +1,8 @@
+{
+  "name": "cnamaq/zac2",
+  "type": "library",
+  "description": "Components",
+  "authors": [
+    {"name": "Fohl Denis", "email": "denis.fohl@lecnam.net"}
+  ]
+}
