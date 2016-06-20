@@ -5,5 +5,9 @@
   "description": "Components",
   "authors": [
     {"name": "Fohl Denis", "email": "denis.fohl@lecnam.net"}
-  ]
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-0": { "Zac2\\": "zac2/" }
+  }
 }
