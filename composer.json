@@ -9,7 +9,7 @@
   ],
   "minimum-stability": "dev",
   "autoload": {
-    "psr-0": { "Zac2\\": "" }
+    "psr-4": { "Zac2\\": "" }
   },
   "require": {
     "symfony/dependency-injection": "^3.0-stable"
