@@ -4,10 +4,14 @@
   "type": "library",
   "description": "Components",
   "authors": [
-    {"name": "Fohl Denis", "email": "denis.fohl@lecnam.net"}
+    {"name": "Denis Fohl", "email": "denis.fohl@lecnam.net"},
+    {"name": "Sébastien Roux"}
   ],
   "minimum-stability": "dev",
   "autoload": {
-    "psr-0": { "Zac2\\": "zac2/" }
+    "psr-0": { "Zac2\\": "" }
+  },
+  "require": {
+    "symfony/dependency-injection": "^3.0-stable"
   }
 }
