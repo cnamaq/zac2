@@ -16,7 +16,7 @@ class FaePca extends EntityAbstract
     /** @Id @Column(type="integer") **/
     protected $priseEnChargeNumero;
     /** @Column(type="integer") **/
-    protected $anneeCivile;
+    protected $annee;
     /** @Column(type="float") **/
     protected $caCalcule;
     /** @Column(type="float") **/
@@ -25,19 +25,19 @@ class FaePca extends EntityAbstract
     protected $pca;
 
     /**
-     * @return int
+     * @return integer
      */
-    public function getAnneeCivile()
+    public function getAnnee()
     {
-        return $this->anneeCivile;
+        return $this->annee;
     }
 
     /**
-     * @param int $anneeCivile
+     * @param integer $annee
      */
-    public function setAnneeCivile($anneeCivile)
+    public function setAnnee($annee)
     {
-        $this->anneeCivile = $anneeCivile;
+        $this->annee = $annee;
     }
 
     /**
