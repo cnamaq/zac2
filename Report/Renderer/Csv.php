@@ -16,14 +16,6 @@ class Csv implements Renderable
     /**
      * @var array
      */
-    protected $noRender = array(
-        'getContainers',
-        'getRenderer',
-        'getParams',
-    );
-    /**
-     * @var array
-     */
     protected $config;
 
     public function __construct(array $config)
@@ -37,13 +29,11 @@ class Csv implements Renderable
      */
     public function render(ContainerAbstract $container)
     {
-        if (in_array(get_class($container), $this->config)) {
+        if (in_array(get_class($container), $this->config['containers'])) {
             $result = array();
-            $abstract = class_parents($container);
-            foreach (get_class_methods(current($abstract)) as $method) {
-                if (substr($method, 0, 3) == 'get' && !in_array($method, $this->noRender)) {
-                    $result[] = $container->$method();
-                }
+            foreach ($this->config['fields'] as $field) {
+                $method = 'get' . ucfirst($field);
+                $result[] = $container->$method();
             }
 
             return implode(';', $result) . chr(13);
