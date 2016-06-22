@@ -12,6 +12,7 @@
     "psr-4": { "Zac2\\": "" }
   },
   "require": {
-    "symfony/dependency-injection": "^3.0-stable"
+    "symfony/dependency-injection": "^3.0-stable",
+    "doctrine/dbal": "^2-stable"
   }
 }
