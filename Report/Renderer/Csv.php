@@ -36,7 +36,7 @@ class Csv implements Renderable
                 $result[] = $container->$method();
             }
 
-            return implode(';', $result) . chr(13);
+            return implode(';', $result) . chr(13) . chr(10);
         }
     }
 
