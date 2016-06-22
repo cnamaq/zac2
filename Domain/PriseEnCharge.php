@@ -851,7 +851,7 @@ class PriseEnCharge extends EntityAbstract implements LigneInterface
      */
     public function getFae($annee)
     {
-        return (!is_null($this->getFaePca($annee))) ? $this->getFaePca($annee)->getFae() : 0;
+        return (!is_null($this->getFaePca($annee))) ? $this->getFaePca($annee)->getFAE() : 0;
     }
 
     /**
@@ -860,7 +860,7 @@ class PriseEnCharge extends EntityAbstract implements LigneInterface
      */
     public function getPca($annee)
     {
-        return (!is_null($this->getFaePca($annee))) ? $this->getFaePca($annee)->getPca() : 0;
+        return (!is_null($this->getFaePca($annee))) ? $this->getFaePca($annee)->getPCA() : 0;
     }
 
     /**
@@ -869,7 +869,7 @@ class PriseEnCharge extends EntityAbstract implements LigneInterface
      */
     public function getCaCalcule($annee)
     {
-        return (!is_null($this->getFaePca($annee))) ? $this->getFaePca($annee)->getCaCalcule() : 0;
+        return (!is_null($this->getFaePca($annee))) ? $this->getFaePca($annee)->getCA() : 0;
     }
 
     /**

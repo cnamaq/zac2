@@ -18,78 +18,14 @@ class FaePca extends EntityAbstract
     /** @Column(type="integer") **/
     protected $annee;
     /** @Column(type="float") **/
-    protected $caCalcule;
+    protected $CA;
     /** @Column(type="float") **/
-    protected $fae;
+    protected $FAE;
     /** @Column(type="float") **/
-    protected $pca;
+    protected $PCA;
 
     /**
-     * @return integer
-     */
-    public function getAnnee()
-    {
-        return $this->annee;
-    }
-
-    /**
-     * @param integer $annee
-     */
-    public function setAnnee($annee)
-    {
-        $this->annee = $annee;
-    }
-
-    /**
-     * @return float
-     */
-    public function getCaCalcule()
-    {
-        return $this->caCalcule;
-    }
-
-    /**
-     * @param float $caCalcule
-     */
-    public function setCaCalcule($caCalcule)
-    {
-        $this->caCalcule = $caCalcule;
-    }
-
-    /**
-     * @return float
-     */
-    public function getFae()
-    {
-        return $this->fae;
-    }
-
-    /**
-     * @param float $fae
-     */
-    public function setFae($fae)
-    {
-        $this->fae = $fae;
-    }
-
-    /**
-     * @return float
-     */
-    public function getPca()
-    {
-        return $this->pca;
-    }
-
-    /**
-     * @param float $pca
-     */
-    public function setPca($pca)
-    {
-        $this->pca = $pca;
-    }
-
-    /**
-     * @return int
+     * @return mixed
      */
     public function getPriseEnChargeNumero()
     {
@@ -97,11 +33,75 @@ class FaePca extends EntityAbstract
     }
 
     /**
-     * @param int $priseEnChargeNumero
+     * @param mixed $priseEnChargeNumero
      */
     public function setPriseEnChargeNumero($priseEnChargeNumero)
     {
         $this->priseEnChargeNumero = $priseEnChargeNumero;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAnnee()
+    {
+        return $this->annee;
+    }
+
+    /**
+     * @param mixed $annee
+     */
+    public function setAnnee($annee)
+    {
+        $this->annee = $annee;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCA()
+    {
+        return $this->CA;
+    }
+
+    /**
+     * @param mixed $CA
+     */
+    public function setCA($CA)
+    {
+        $this->CA = $CA;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFAE()
+    {
+        return $this->FAE;
+    }
+
+    /**
+     * @param mixed $FAE
+     */
+    public function setFAE($FAE)
+    {
+        $this->FAE = $FAE;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPCA()
+    {
+        return $this->PCA;
+    }
+
+    /**
+     * @param mixed $PCA
+     */
+    public function setPCA($PCA)
+    {
+        $this->PCA = $PCA;
     }
 
 }
