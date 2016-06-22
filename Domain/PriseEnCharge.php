@@ -838,7 +838,7 @@ class PriseEnCharge extends EntityAbstract implements LigneInterface
     {
         $lst = $this->getEm()->getRepository('Zac2\Domain\FaePca')->findBy(array(
             'priseEnChargeNumero' => $this->getPriseEnChargeNumero(),
-            'anneeCivile' => $annee,
+            'annee' => $annee,
         ));
 
         return (isset($lst[0])) ? $lst[0] : null;
