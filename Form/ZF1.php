@@ -23,8 +23,12 @@ class ZF1 extends FormComponentDecorator
     /**
      * @param \Zend_Form $formComponent
      */
-    public function setFormComponent(Form $formComponent)
+    public function setFormComponent($formComponent)
     {
+        if (!$formComponent instanceof \Zend_Form) {
+            throw new \InvalidArgumentException('Zend_Form attendu');
+        }
+        
         $this->formComponent = $formComponent;
     }
 
