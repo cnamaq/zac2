@@ -1,6 +1,6 @@
 {
   "name": "cnamaq/zac2",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "type": "library",
   "description": "Components",
   "authors": [
@@ -13,6 +13,8 @@
   },
   "require": {
     "symfony/dependency-injection": "^3.0-stable",
-    "doctrine/dbal": "^2-stable"
+    "doctrine/dbal": "^2-stable",
+    "doctrine/orm": "^2-stable",
+    "league/csv": "8.1.0"
   }
 }
