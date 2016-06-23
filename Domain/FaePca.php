@@ -13,7 +13,9 @@ use Zac2\Entity\EntityAbstract;
  */
 class FaePca extends EntityAbstract
 {
-    /** @Id @Column(type="integer") **/
+    /** @Id @Column(type="integer") @GeneratedValue **/
+    protected $id;
+    /** @Column(type="integer") **/
     protected $priseEnChargeNumero;
     /** @Column(type="integer") **/
     protected $annee;
@@ -23,6 +25,22 @@ class FaePca extends EntityAbstract
     protected $FAE;
     /** @Column(type="float") **/
     protected $PCA;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return mixed
