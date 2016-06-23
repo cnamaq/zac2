@@ -6,7 +6,7 @@ namespace Zac2\Data;
 use League\Csv\Reader;
 use Doctrine\ORM\EntityManager;
 
-class Tagger
+class CsvToDb
 {
 
     const MESSAGE_SUCCESS = '<p class="message success">Marquage réussi : ';
