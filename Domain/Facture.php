@@ -36,7 +36,41 @@ class Facture extends EntityAbstract
     protected $auditeur_prenom;
     protected $auditeur_nom_usage;
     protected $compte_auxiliaire;
+    protected $regroupement_comptable_numero;
+    protected $regroupement_comptable_libelle;
 
+    /**
+     * @return mixed
+     */
+    public function getRegroupementComptableNumero()
+    {
+        return $this->regroupement_comptable_numero;
+    }
+
+    /**
+     * @param mixed $regroupement_comptable_numero
+     */
+    public function setRegroupementComptableNumero($regroupement_comptable_numero)
+    {
+        $this->regroupement_comptable_numero = $regroupement_comptable_numero;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRegroupementComptableLibelle()
+    {
+        return $this->regroupement_comptable_libelle;
+    }
+
+    /**
+     * @param mixed $regroupement_comptable_libelle
+     */
+    public function setRegroupementComptableLibelle($regroupement_comptable_libelle)
+    {
+        $this->regroupement_comptable_libelle = $regroupement_comptable_libelle;
+    }
+    
     /**
      * @return mixed
      */
