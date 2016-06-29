@@ -36,7 +36,7 @@ class Emargement extends EntityAbstract
      */
     protected $enseignant_code;
     /**
-     * @var \DateTime
+     * @var string
      */
     protected $emargement_date;
     /**
@@ -124,11 +124,11 @@ class Emargement extends EntityAbstract
      */
     protected $emargement_type_evenement;
     /**
-     * @var \DateTime
+     * @var string
      */
     protected $emargement_heure_debut;
     /**
-     * @var \DateTime
+     * @var string
      */
     protected $emargement_heure_fin;
     /**
@@ -172,7 +172,7 @@ class Emargement extends EntityAbstract
      */
     protected $emargement_bordereau;
     /**
-     * @var \DateTime
+     * @var string
      */
     protected $emargement_bordereau_date;
     /**
@@ -673,7 +673,7 @@ class Emargement extends EntityAbstract
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getEmargementHeureDebut()
     {
@@ -681,7 +681,7 @@ class Emargement extends EntityAbstract
     }
 
     /**
-     * @param \DateTime $emargement_heure_debut
+     * @param string $emargement_heure_debut
      */
     public function setEmargementHeureDebut($emargement_heure_debut)
     {
@@ -689,7 +689,7 @@ class Emargement extends EntityAbstract
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getEmargementHeureFin()
     {
@@ -697,7 +697,7 @@ class Emargement extends EntityAbstract
     }
 
     /**
-     * @param \DateTime $emargement_heure_fin
+     * @param string $emargement_heure_fin
      */
     public function setEmargementHeureFin($emargement_heure_fin)
     {
@@ -865,7 +865,7 @@ class Emargement extends EntityAbstract
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getEmargementBordereauDate()
     {
@@ -873,7 +873,7 @@ class Emargement extends EntityAbstract
     }
 
     /**
-     * @param \DateTime $emargement_bordereau_date
+     * @param string $emargement_bordereau_date
      */
     public function setEmargementBordereauDate($emargement_bordereau_date)
     {
