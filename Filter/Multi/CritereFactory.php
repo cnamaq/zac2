@@ -20,7 +20,7 @@ class CritereFactory
             $config['key'] = $config['id'];
         }
         if (!isset($config['valueFrom'])) {
-            $config['valueFrom'] = $config['id'];
+            $config['valueFrom'] = $config['key'];
         }
 
         $critere = new Critere($config);
@@ -42,7 +42,7 @@ class CritereFactory
 
     /**
      * @param array $config
-     * @return FilterInterface
+     * @return FilterInterface[]
      */
     protected static function createFilter(array $config)
     {
