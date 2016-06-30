@@ -8,14 +8,14 @@ namespace Zac2\Analytique;
 
 class SectionFactory
 {
-    const SITE = array(
+    protected $site = array(
         'Centre de Bordeaux' => 'BDX',
         'Centre de Pau'      => 'PAU',
         'Centre d\'Anglet'   => 'CBQ',
         'default'            => 'AQU',
     );
 
-    const COMPOSANTE = array(
+    protected $composante = array(
         'Cnam'  => 'CN',
         'ENASS' => 'EN',
         'ICSV'  => 'MA',
@@ -24,7 +24,7 @@ class SectionFactory
         'default'   => 'XX',
     );
 
-    const MODALITE = array(
+    protected $modalite = array(
         'FOD régionale'     => 'FD',
         'FOD'               => 'FD',
         'Formation Hybride' => 'MX',
@@ -32,7 +32,7 @@ class SectionFactory
         'default'           => 'XX',
     );
 
-    const PROJET = array(
+    protected $projet = array(
         'default' => 'CRA',
     );
 
@@ -40,13 +40,13 @@ class SectionFactory
      * @param  LigneInterface $ligne
      * @return Section
      */
-    public static function create(LigneInterface $ligne)
+    public function create(LigneInterface $ligne)
     {
         return new Section(array(
-            'site'          => self::getSousSectionCode(self::SITE,       $ligne->getCodeForSiteAnalytique()),
-            'composante'    => self::getSousSectionCode(self::COMPOSANTE, $ligne->getCodeForComposanteAnalytique()),
-            'modalite'      => self::getSousSectionCode(self::MODALITE,   $ligne->getCodeForModaliteAnalytique()),
-            'projet'        => self::getSousSectionCode(self::PROJET,     $ligne->getCodeForProjetAnalytique()),
+            'site'          => self::getSousSectionCode($this->site,       $ligne->getCodeForSiteAnalytique()),
+            'composante'    => self::getSousSectionCode($this->composante, $ligne->getCodeForComposanteAnalytique()),
+            'modalite'      => self::getSousSectionCode($this->modalite,   $ligne->getCodeForModaliteAnalytique()),
+            'projet'        => self::getSousSectionCode($this->projet,     $ligne->getCodeForProjetAnalytique()),
         ));
     }
 
