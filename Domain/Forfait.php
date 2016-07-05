@@ -655,4 +655,11 @@ class Forfait extends EntityAbstract
         $this->remuneration_forfaitaire_memo = $remuneration_forfaitaire_memo;
     }
 
+    public function isNFO()
+    {
+        $NFO = array('Forfait Jury');
+
+        return in_array($this->getRemunerationForfaitaireLibelle(), $NFO);
+    }
+
 }
