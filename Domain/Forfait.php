@@ -655,9 +655,16 @@ class Forfait extends EntityAbstract
         $this->remuneration_forfaitaire_memo = $remuneration_forfaitaire_memo;
     }
 
+    /**
+     * @return bool
+     * @throws \Exception
+     */
     public function isNFO()
     {
-        $NFO = array('Forfait Jury');
+        $NFO = array(
+            'Forfait de coordination pédagogique',
+            'Forfait accompagnement VAE / VAP85 / VES',
+        );
 
         return in_array($this->getRemunerationForfaitaireLibelle(), $NFO);
     }
