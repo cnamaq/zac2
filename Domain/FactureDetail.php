@@ -125,6 +125,14 @@ class FactureDetail extends EntityAbstract
     protected $facture_date;
 
     /**
+     * @return float
+     */
+    public function getMontant()
+    {
+        return $this->getDetailFacPrixUnitaire() * $this->getDetailFacQuantite();
+    }
+
+    /**
      * @return int
      */
     public function getFactureDetailNumero()
