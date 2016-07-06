@@ -5,10 +5,11 @@
 
 namespace Zac2\Domain;
 
+use Zac2\Analytique\LigneInterface;
 use Zac2\Common\DateTime;
 use Zac2\Entity\EntityAbstract;
 
-class FactureDetail extends EntityAbstract
+class FactureDetail extends EntityAbstract implements LigneInterface
 {
     /**
      * @var integer
@@ -579,5 +580,37 @@ class FactureDetail extends EntityAbstract
     {
         $this->facture_date = new DateTime($facture_date);
     }
-    
+
+    /**
+     * @return string
+     */
+    function getCodeForSiteAnalytique()
+    {
+        return $this->getCentreLibelle();
+    }
+
+    /**
+     * 
+     */
+    function getCodeForComposanteAnalytique()
+    {
+        
+    }
+
+    /**
+     * @return string
+     */
+    function getCodeForModaliteAnalytique()
+    {
+        return $this->getModalite();
+    }
+
+    /**
+     * @return string
+     */
+    function getCodeForProjetAnalytique()
+    {
+        return 'default';
+    }
+
 }
