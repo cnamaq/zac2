@@ -38,6 +38,26 @@ class Facture extends EntityAbstract
     protected $compte_auxiliaire;
     protected $regroupement_comptable_numero;
     protected $regroupement_comptable_libelle;
+    /**
+     * @var FactureDetail[]
+     */
+    protected $lignes;
+
+    /**
+     * @return FactureDetail[]
+     */
+    public function getLignes()
+    {
+        return $this->lignes;
+    }
+
+    /**
+     * @param FactureDetail[] $lignes
+     */
+    public function setLignes($lignes)
+    {
+        $this->lignes = $lignes;
+    }
 
     /**
      * @return mixed
