@@ -15,7 +15,7 @@ class ExportVente extends EntityAbstract
 {
     /** @Id @Column(type="integer") @GeneratedValue **/
     protected $id;
-    /** @Column(type="date") **/
+    /** @Column(type="string") **/
     protected $dateExport;
     /** @Column(type="integer") **/
     protected $factureNumero;
@@ -23,7 +23,7 @@ class ExportVente extends EntityAbstract
     protected $factureMontant;
     /** @Column(type="string") **/
     protected $factureRegroupementComptable;
-    /** @Column(type="date") **/
+    /** @Column(type="string") **/
     protected $factureDate;
 
     /**
