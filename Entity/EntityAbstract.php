@@ -29,7 +29,6 @@ abstract class EntityAbstract
                 $method = $this->getMethodName($key);
                 $this->$method($value);
             } catch (\DomainException $e) {
-                echo 'protected $'.$key.';<br>';
                 $container = \Zend_Controller_Front::getInstance()->getParam('bootstrap')->getResource('dic');
                 $logger = $container->get('logger');
                 $logger->debug($e->getMessage());
