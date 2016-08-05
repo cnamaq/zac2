@@ -167,4 +167,39 @@ class Multi implements FilterInterface
         return serialize($this);
     }
 
+    /**
+     * @param null|string $prefix
+     * @return string
+     */
+    public function getSql($prefix = null)
+    {
+        $operatorSQL = array(
+            'equalTo' => '=',
+            'lessThanOrEqualTo' => '<=',
+            'greaterThanOrEqualTo' => '>=',
+            'notEqualTo' => '!=',
+            'isNull' => 'IS NULL',
+            'notIsNull' => 'IS NOT NULL',
+            'greaterThan' => '>',
+            'lessThan' => '<',
+        );
+        $sql = array();
+        foreach ($this->getCritereLst() as $critere) {
+            if ($this->critereIsActive($critere)) {
+                if (preg_match('/_date/', $critere->getKey())) {
+                    $value = "convert(datetime, '{$critere->getValue()}')";
+                } else {
+                    $value = "'" . $critere->getValue() . "'";
+                }
+                $sql[] = $prefix . $critere->getKey()
+                    . ' '
+                    . $operatorSQL[$critere->getOperator()]
+                    . ' '
+                    . $value;
+            }
+        }
+
+        return implode(' AND ', $sql);
+    }
+
 }
