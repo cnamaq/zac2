@@ -94,9 +94,17 @@ class Section extends EntityAbstract
     /**
      * @return string
      */
-    public function __toString()
+    public function getId()
     {
         return $this->getSite() . $this->getComposante() . $this->getModalite() . $this->getProjet();
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getId();
     }
 
 }

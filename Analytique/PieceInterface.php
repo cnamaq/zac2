@@ -12,6 +12,9 @@ namespace Zac2\Analytique;
  */
 interface PieceInterface
 {
+    /**
+     * @return Ventilation
+     */
     function getVentilation();
 
     /**

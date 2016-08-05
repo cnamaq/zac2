@@ -9,6 +9,9 @@ namespace Zac2\Analytique;
 class SectionFactory
 {
     protected $site = array(
+        'BX' => 'BDX',
+        'PA' => 'PAU',
+        'CB' => 'CBQ',
         'Centre de Bordeaux' => 'BDX',
         'Centre de Pau'      => 'PAU',
         'Centre d\'Anglet'   => 'CBQ',
@@ -62,6 +65,16 @@ class SectionFactory
             throw new \Exception('valeur par défaut absente du tableau : ' . implode('-',$sousSection));
         }
         return (array_key_exists($code, $sousSection)) ? $sousSection[$code] : $sousSection['default'];
+    }
+
+    public function getDefaultSection()
+    {
+        return new Section(array(
+            'site'       => $this->site['default'],
+            'composante' => $this->composante['default'],
+            'modalite'   => $this->modalite['default'],
+            'projet'     => $this->projet['default'],
+        ));
     }
 
 }
