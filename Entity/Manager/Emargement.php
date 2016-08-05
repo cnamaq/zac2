@@ -19,14 +19,19 @@ class Emargement extends DicAware implements ManagerInterface
     {
         $em = $this->getDic()->get('entitymanager.gescicca.requeteur');
         $dataRequest = new SqlString();
-        $dataRequest->setSql("SELECT e.*, 
+        // le filtrage doit être appliqué ici à la main
+        $sql = "SELECT e.*, 
                 uo.regroupement_programme_code, uo.regroupement_programme_libelle
             FROM emargement_aqu as e
             LEFT JOIN unite_ouverte_aqu as uo ON uo.centre_code = e.centre_code 
                 AND uo.annee = e.annee 
                 AND uo.unite_numero = e.unite_numero
                 AND uo.semestre_code = e.semestre_code
-                AND uo.groupe_code = e.groupe_code");
+                AND uo.groupe_code = e.groupe_code";
+        if ($filtre->getSql()) {
+            $sql .= ' WHERE ' . $filtre->getSql('e.');
+        }
+        $dataRequest->setSql($sql);
         $em->setDataRequestAdapter($dataRequest);
 
         return $em->get('\Zac2\Domain\Emargement', $filtre);
