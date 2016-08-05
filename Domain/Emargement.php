@@ -6,9 +6,10 @@
 namespace Zac2\Domain;
 
 
+use Zac2\Analytique\LigneInterface;
 use Zac2\Entity\EntityAbstract;
 
-class Emargement extends EntityAbstract
+class Emargement extends EntityAbstract implements LigneInterface
 {
 
     /**
@@ -223,6 +224,14 @@ class Emargement extends EntityAbstract
      * @var int
      */
     protected $enseignant_matricule;
+    /**
+     * @var integer
+     */
+    protected $regroupement_programme_code;
+    /**
+     * @var string
+     */
+    protected $regroupement_programme_libelle;
 
     /**
      * @return mixed
@@ -1070,6 +1079,78 @@ class Emargement extends EntityAbstract
     public function setEnseignantMatricule($enseignant_matricule)
     {
         $this->enseignant_matricule = $enseignant_matricule;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRegroupementProgrammeCode()
+    {
+        return $this->regroupement_programme_code;
+    }
+
+    /**
+     * @param int $regroupement_programme_code
+     */
+    public function setRegroupementProgrammeCode($regroupement_programme_code)
+    {
+        $this->regroupement_programme_code = $regroupement_programme_code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRegroupementProgrammeLibelle()
+    {
+        return $this->regroupement_programme_libelle;
+    }
+
+    /**
+     * @param string $regroupement_programme_libelle
+     */
+    public function setRegroupementProgrammeLibelle($regroupement_programme_libelle)
+    {
+        $this->regroupement_programme_libelle = $regroupement_programme_libelle;
+    }
+
+    /**
+     * @return float
+     */
+    function getMontant()
+    {
+        // TODO: Implement getMontant() method.
+    }
+
+    /**
+     * @return string
+     */
+    function getCodeForSiteAnalytique()
+    {
+        return ($this->getGroupeCode() == '0') ? 'AQU' : $this->getGroupeLibelle();
+    }
+
+    /**
+     * @return string
+     */
+    function getCodeForComposanteAnalytique()
+    {
+        return $this->getRegroupementProgrammeLibelle();
+    }
+
+    /**
+     * @return string
+     */
+    function getCodeForModaliteAnalytique()
+    {
+        return $this->getModaliteLibelle();
+    }
+
+    /**
+     * @return string
+     */
+    function getCodeForProjetAnalytique()
+    {
+        return 'default';
     }
 
 }
