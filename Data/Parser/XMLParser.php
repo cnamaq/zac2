@@ -15,6 +15,9 @@ class XMLParser implements ParserInterface
     {
         $result = array();
         $xml    = new \SimpleXMLElement($this->getXmlString($rawData));
+        if (!$xml->children()) {
+            return $result;
+        }
         $xml    = $xml->children()->children();
         $nb     = $xml->count();
         for ($i = 0; $i < $nb; $i++) {
