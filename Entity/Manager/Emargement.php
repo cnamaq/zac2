@@ -26,8 +26,7 @@ class Emargement extends DicAware implements ManagerInterface
                 AND uo.annee = e.annee 
                 AND uo.unite_numero = e.unite_numero
                 AND uo.semestre_code = e.semestre_code
-                AND uo.groupe_code = e.groupe_code
-            WHERE e.annee={$filtre->getCritere('annee')->getValue()}");
+                AND uo.groupe_code = e.groupe_code");
         $em->setDataRequestAdapter($dataRequest);
 
         return $em->get('\Zac2\Domain\Emargement', $filtre);
