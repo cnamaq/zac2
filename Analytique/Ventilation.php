@@ -11,22 +11,22 @@ class Ventilation
     /**
      * @var VentilationLigne[]
      */
-    protected $ventilationLigneLst;
+    protected $lignes;
 
     /**
      * @return VentilationLigne[]
      */
-    public function getVentilationLigneLst()
+    public function getLignes()
     {
-        return $this->ventilationLigneLst;
+        return $this->lignes;
     }
 
     /**
-     * @param VentilationLigne[] $ventilationLigneLst
+     * @param VentilationLigne[] $lignes
      */
-    public function setVentilationLigneLst(array $ventilationLigneLst)
+    public function setLignes(array $lignes)
     {
-        $this->ventilationLigneLst = $ventilationLigneLst;
+        $this->lignes = $lignes;
     }
 
     /**
@@ -38,12 +38,12 @@ class Ventilation
         $ventilationLigne = VentilationLigneFactory::create($ligne);
         $factory = new SectionFactory();
         $section = $factory->create($ligne);
-        if (!array_key_exists($section->getId(), $this->ventilationLigneLst)) {
+        if (!array_key_exists($section->getId(), $this->lignes)) {
             $ligneParent = clone $ventilationLigne;
             $ligneParent->setMontant(0);
-            $this->ventilationLigneLst[$section->getId()] = $ligneParent;
+            $this->lignes[$section->getId()] = $ligneParent;
         }
-        $this->ventilationLigneLst[$section->getId()]->addLigne($ventilationLigne);
+        $this->lignes[$section->getId()]->addLigne($ventilationLigne);
 
         return true;
     }
@@ -54,7 +54,7 @@ class Ventilation
     public function getMontantTotal()
     {
         $montantTotal = 0;
-        foreach ($this->ventilationLigneLst as $ligne) {
+        foreach ($this->lignes as $ligne) {
             $montantTotal += $ligne->getMontant();
         }
 
@@ -67,7 +67,7 @@ class Ventilation
     public function getRepartition()
     {
         $repartition = array();
-        foreach ($this->getVentilationLigneLst() as $ligne) {
+        foreach ($this->getLignes() as $ligne) {
             $repartition[$ligne->getSection()->getId()] = $ligne->getMontant() / $this->getMontantTotal();
         }
 
