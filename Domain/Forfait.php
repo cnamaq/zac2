@@ -670,29 +670,44 @@ class Forfait extends EntityAbstract implements LigneInterface
         return in_array($this->getRemunerationForfaitaireLibelle(), $NFO);
     }
 
+    /**
+     * @return float
+     */
     function getMontant()
     {
-        // TODO: Implement getMontant() method.
+        return $this->getRemunerationForfaitaireMontantTotal();
     }
 
+    /**
+     * @return string
+     */
     function getCodeForSiteAnalytique()
     {
-        // TODO: Implement getCodeForSiteAnalytique() method.
+        return ($this->getGroupeCode() == '0') ? 'AQU' : $this->getGroupeLibelle();
     }
 
+    /**
+     * @return string
+     */
     function getCodeForComposanteAnalytique()
     {
-        // TODO: Implement getCodeForComposanteAnalytique() method.
+        return $this->getRegroupementProgrammeLibelle();
     }
 
+    /**
+     * @return string
+     */
     function getCodeForModaliteAnalytique()
     {
-        // TODO: Implement getCodeForModaliteAnalytique() method.
+        return $this->getModalite();
     }
 
+    /**
+     * @return string
+     */
     function getCodeForProjetAnalytique()
     {
-        // TODO: Implement getCodeForProjetAnalytique() method.
+        return 'default';
     }
 
 }
