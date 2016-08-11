@@ -8,33 +8,42 @@ namespace Zac2\Analytique;
 
 class SectionFactory
 {
+    /**
+     * @var array
+     */
     protected $site = array(
         'BX' => 'BDX',
         'PA' => 'PAU',
         'CB' => 'CBQ',
         'Centre de Bordeaux' => 'BDX',
-        'Centre de Pau'      => 'PAU',
-        'Centre d\'Anglet'   => 'CBQ',
-        'default'            => 'AQU',
+        'Centre de Pau' => 'PAU',
+        'Centre d\'Anglet' => 'CBQ',
+        'default' => 'AQU',
     );
-
+    /**
+     * @var array
+     */
     protected $composante = array(
-        'Cnam'  => 'CN',
+        'Cnam' => 'CN',
         'ENASS' => 'EN',
-        'ICSV'  => 'MA',
+        'ICSV' => 'MA',
         'INTEC' => 'GE',
         'Hors Cnam' => 'HC',
-        'default'   => 'XX',
+        'default' => 'XX',
     );
-
+    /**
+     * @var array
+     */
     protected $modalite = array(
-        'FOD régionale'     => 'FD',
-        'FOD'               => 'FD',
+        'FOD régionale' => 'FD',
+        'FOD' => 'FD',
         'Formation Hybride' => 'MX',
-        'Présentiel'        => 'PR',
-        'default'           => 'XX',
+        'Présentiel' => 'PR',
+        'default' => 'XX',
     );
-
+    /**
+     * @var array
+     */
     protected $projet = array(
         'default' => 'CRA',
     );
@@ -46,27 +55,35 @@ class SectionFactory
     public function create(LigneInterface $ligne)
     {
         return new Section(array(
-            'site'          => self::getSousSectionCode($this->site,       $ligne->getCodeForSiteAnalytique()),
-            'composante'    => self::getSousSectionCode($this->composante, $ligne->getCodeForComposanteAnalytique()),
-            'modalite'      => self::getSousSectionCode($this->modalite,   $ligne->getCodeForModaliteAnalytique()),
-            'projet'        => self::getSousSectionCode($this->projet,     $ligne->getCodeForProjetAnalytique()),
+            'site'          => self::getSousSectionCode('site', $ligne->getCodeForSiteAnalytique()),
+            'composante'    => self::getSousSectionCode('composante', $ligne->getCodeForComposanteAnalytique()),
+            'modalite'      => self::getSousSectionCode('modalite', $ligne->getCodeForModaliteAnalytique()),
+            'projet'        => self::getSousSectionCode('projet', $ligne->getCodeForProjetAnalytique()),
         ));
     }
 
     /**
-     * @param $sousSection
-     * @param $code
-     * @return mixed
+     * @param string $sousSection
+     * @param string $code
+     * @return string
      * @throws \Exception
      */
-    protected function getSousSectionCode($sousSection, $code)
+    public function getSousSectionCode($sousSection, $code)
     {
-        if (!array_key_exists('default', $sousSection)) {
-            throw new \Exception('valeur par défaut absente du tableau : ' . implode('-',$sousSection));
+        if (!isset($this->$sousSection)) {
+            throw new \Exception('la sous section analytique ' . $sousSection . "n'existe pas.");
         }
-        return (array_key_exists($code, $sousSection)) ? $sousSection[$code] : $sousSection['default'];
+        $data = $this->$sousSection;
+        if (!array_key_exists('default', $data)) {
+            throw new \Exception('valeur par défaut absente du tableau : ' . implode('-', $data));
+        }
+
+        return (array_key_exists($code, $data)) ? $data[$code] : $data['default'];
     }
 
+    /**
+     * @return Section
+     */
     public function getDefaultSection()
     {
         return new Section(array(
