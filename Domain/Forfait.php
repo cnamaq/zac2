@@ -1,12 +1,13 @@
 <?php
 namespace Zac2\Domain;
 
+use Zac2\Analytique\LigneInterface;
 use Zac2\Entity\EntityAbstract;
 
 /**
  * @author Denis Fohl
  */
-class Forfait extends EntityAbstract
+class Forfait extends EntityAbstract implements LigneInterface
 {
 
     /**
@@ -667,6 +668,31 @@ class Forfait extends EntityAbstract
         );
 
         return in_array($this->getRemunerationForfaitaireLibelle(), $NFO);
+    }
+
+    function getMontant()
+    {
+        // TODO: Implement getMontant() method.
+    }
+
+    function getCodeForSiteAnalytique()
+    {
+        // TODO: Implement getCodeForSiteAnalytique() method.
+    }
+
+    function getCodeForComposanteAnalytique()
+    {
+        // TODO: Implement getCodeForComposanteAnalytique() method.
+    }
+
+    function getCodeForModaliteAnalytique()
+    {
+        // TODO: Implement getCodeForModaliteAnalytique() method.
+    }
+
+    function getCodeForProjetAnalytique()
+    {
+        // TODO: Implement getCodeForProjetAnalytique() method.
     }
 
 }
