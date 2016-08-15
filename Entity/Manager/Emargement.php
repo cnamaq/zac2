@@ -11,10 +11,17 @@ namespace Zac2\Entity\Manager;
 
 use Zac2\Common\DicAware;
 use Zac2\Data\Request\SqlString;
+use Zac2\Domain\RemunerationHoraireAnnee;
 use Zac2\Filter\Multi\Multi;
 
 class Emargement extends DicAware implements ManagerInterface
 {
+
+    /**
+     * @var RemunerationHoraireAnnee
+     */
+    protected $remunerationHoraireAnnee;
+
     public function get($entity, Multi $filtre)
     {
         $em = $this->getDic()->get('entitymanager.gescicca.requeteur');
@@ -34,7 +41,26 @@ class Emargement extends DicAware implements ManagerInterface
         $dataRequest->setSql($sql);
         $em->setDataRequestAdapter($dataRequest);
 
-        return $em->get('\Zac2\Domain\Emargement', $filtre);
+        $result = $em->get('\Zac2\Domain\Emargement', $filtre);
+        foreach ($result as $emargement) {
+            /** @var \Zac2\Domain\Emargement $emargement */
+            $emargement->setRemunerationHoraireAnnee($this->getRemunerationHoraireAnnee($emargement->getAnnee()));
+        }
+    }
+
+    /**
+     * @param $annee
+     * @return RemunerationHoraireAnnee
+     * @throws \Exception
+     */
+    protected function getRemunerationHoraireAnnee($annee)
+    {
+        if (is_null($this->remunerationHoraireAnnee)) {
+            $factory = $this->getDic()->get('remunerationhoraireanneefactory');
+            $this->remunerationHoraireAnnee = $factory->create($annee);
+        }
+
+        return $this->remunerationHoraireAnnee;
     }
 
 }
