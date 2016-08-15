@@ -19,6 +19,7 @@ class PriseEnCharge extends DicAware implements ManagerInterface
     {
         $em = $this->getDic()->get('entitymanager.gescicca.requeteur');
         $dataRequest = new SqlString();
+        // le filtrage doit être appliqué ici à la main
         $dataRequest->setSql("SELECT p.*, 
                 i.inscription_date, i.centre_attachement_libelle,
                 iu.inscription_unite_date_creation, iu.modalite, 
