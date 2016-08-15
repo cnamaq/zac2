@@ -37,6 +37,14 @@ class Programme extends EntityAbstract
     protected $concerne_par_presentiel_enrichi;
     protected $autoriser_preinscription;
     protected $enseignant_nom_usage;
+    /**
+     * @var int
+     */
+    protected $regroupement_programme_code;
+    /**
+     * @var string
+     */
+    protected $regroupement_programme_libelle;
 
     /**
      * @return mixed
@@ -484,6 +492,38 @@ class Programme extends EntityAbstract
     public function setAutoriserPreinscription($autoriser_preinscription)
     {
         $this->autoriser_preinscription = $autoriser_preinscription;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRegroupementProgrammeCode()
+    {
+        return $this->regroupement_programme_code;
+    }
+
+    /**
+     * @param int $regroupement_programme_code
+     */
+    public function setRegroupementProgrammeCode($regroupement_programme_code)
+    {
+        $this->regroupement_programme_code = $regroupement_programme_code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRegroupementProgrammeLibelle()
+    {
+        return $this->regroupement_programme_libelle;
+    }
+
+    /**
+     * @param string $regroupement_programme_libelle
+     */
+    public function setRegroupementProgrammeLibelle($regroupement_programme_libelle)
+    {
+        $this->regroupement_programme_libelle = $regroupement_programme_libelle;
     }
 
 }
