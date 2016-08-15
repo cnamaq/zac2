@@ -13,6 +13,20 @@ class Emargement extends EntityAbstract implements LigneInterface
 {
 
     /**
+     * @var array
+     */
+    protected $heuresAPayer = array(
+        'getEmargementHeuresAPayerTarifCours' => 'Heure de cours',
+        'getEmargementHeuresAPayerTarifTd' => 'Heure de TD',
+        'getEmargementHeuresAPayerTarifTp' => 'Heure de TP',
+        'getEmargementHeuresAPayerTarifDs' => 'Heure d\'examen',
+        'getEmargementHeuresAPayerTarifAutre' => 'Heure autres',
+    );
+    /**
+     * @var RemunerationHoraireAnnee
+     */
+    protected $remunerationHoraireAnnee;
+    /**
      * @var int
      */
     protected $evenement_code;
@@ -232,6 +246,72 @@ class Emargement extends EntityAbstract implements LigneInterface
      * @var string
      */
     protected $regroupement_programme_libelle;
+
+    /**
+     * @return float
+     */
+    function getNbHeures()
+    {
+        $heures = 0;
+        foreach ($this->heuresAPayer as $method => $tauxId) {
+            $heures += $this->$method();
+        }
+
+        return $heures;
+    }
+
+    /**
+     * @return float
+     */
+    function getTaux()
+    {
+        return round($this->getMontant() / $this->getNbHeures(), 2);
+    }
+
+    /**
+     * @return float
+     */
+    public function getMontant()
+    {
+        $montant = 0;
+        foreach ($this->heuresAPayer as $method => $tauxId) {
+            $nbHeure = (float)$this->$method();
+            if ($nbHeure > 0) {
+                $montant += $nbHeure * $this->getTauxUnique($tauxId);
+            }
+        }
+
+        return $montant;
+    }
+
+    /**
+     * @param string $key
+     * @return float
+     */
+    protected function getTauxUnique($key)
+    {
+        return $this->getRemunerationHoraireAnnee()->getTaux($key);
+    }
+
+    /**
+     * @return RemunerationHoraireAnnee
+     * @throws \Exception
+     */
+    public function getRemunerationHoraireAnnee()
+    {
+        if (is_null($this->remunerationHoraireAnnee)) {
+            throw new \Exception('la propriété remunerationHoraireAnnee doit être injectée');
+        }
+        return $this->remunerationHoraireAnnee;
+    }
+
+    /**
+     * @param RemunerationHoraireAnnee $remunerationHoraireAnnee
+     */
+    public function setRemunerationHoraireAnnee($remunerationHoraireAnnee)
+    {
+        $this->remunerationHoraireAnnee = $remunerationHoraireAnnee;
+    }
 
     /**
      * @return mixed
@@ -1111,14 +1191,6 @@ class Emargement extends EntityAbstract implements LigneInterface
     public function setRegroupementProgrammeLibelle($regroupement_programme_libelle)
     {
         $this->regroupement_programme_libelle = $regroupement_programme_libelle;
-    }
-
-    /**
-     * @return float
-     */
-    function getMontant()
-    {
-        // TODO: Implement getMontant() method.
     }
 
     /**
