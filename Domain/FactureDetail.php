@@ -124,6 +124,14 @@ class FactureDetail extends EntityAbstract implements LigneInterface
      * @var DateTime
      */
     protected $facture_date;
+    /**
+     * @var int
+     */
+    protected $regroupement_programme_code;
+    /**
+     * @var string
+     */
+    protected $regroupement_programme_libelle;
 
     /**
      * @return float
@@ -594,7 +602,7 @@ class FactureDetail extends EntityAbstract implements LigneInterface
      */
     function getCodeForComposanteAnalytique()
     {
-        
+        return $this->getRegroupementProgrammeLibelle();
     }
 
     /**
@@ -611,6 +619,38 @@ class FactureDetail extends EntityAbstract implements LigneInterface
     function getCodeForProjetAnalytique()
     {
         return 'default';
+    }
+
+    /**
+     * @return int
+     */
+    public function getRegroupementProgrammeCode()
+    {
+        return $this->regroupement_programme_code;
+    }
+
+    /**
+     * @param int $regroupement_programme_code
+     */
+    public function setRegroupementProgrammeCode($regroupement_programme_code)
+    {
+        $this->regroupement_programme_code = $regroupement_programme_code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRegroupementProgrammeLibelle()
+    {
+        return $this->regroupement_programme_libelle;
+    }
+
+    /**
+     * @param string $regroupement_programme_libelle
+     */
+    public function setRegroupementProgrammeLibelle($regroupement_programme_libelle)
+    {
+        $this->regroupement_programme_libelle = $regroupement_programme_libelle;
     }
 
 }
