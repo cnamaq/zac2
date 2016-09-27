@@ -23,7 +23,7 @@ class RemunerationHoraireAnneeFactory extends DicAware
         }
 
         $result->setTauxArray($taux);
-
+        $result->setAnnee((int) $annee);
         return $result;
     }
 }
