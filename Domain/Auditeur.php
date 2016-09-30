@@ -51,6 +51,314 @@ class Auditeur extends EntityAbstract
     protected $auditeur_memo;
     protected $auditeur_ine_cnam;
     protected $auditeur_telephone_pers;
+    protected $proprietaire_dossier;
+    protected $proprietaire_dossier_code;
+    protected $auditeur_annee_entree_vie_active;
+    protected $auditeur_connu_cnam_detail;
+    protected $auditeur_ine;
+    protected $auditeur_mel_pro;
+    protected $auditeur_profession_insee;
+    protected $auditeur_plus_haut_diplome_initial_prepare_code_national;
+    protected $auditeur_plus_haut_diplome_initial_prepare;
+    protected $auditeur_mode_transport;
+    protected $auditeur_numero_poste;
+    protected $auditeur_situation_famille;
+    protected $auditeur_date_cessation_activite;
+    protected $auditeur_sec_adresse_zone1;
+    protected $auditeur_sec_adresse_zone2;
+    protected $auditeur_sec_code_postal;
+    protected $auditeur_sec_ville;
+    protected $auditeur_sec_pays;
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurDateCessationActivite()
+    {
+        return $this->auditeur_date_cessation_activite;
+    }
+
+    /**
+     * @param mixed $auditeur_date_cessation_activite
+     */
+    public function setAuditeurDateCessationActivite($auditeur_date_cessation_activite)
+    {
+        $this->auditeur_date_cessation_activite = $auditeur_date_cessation_activite;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurSecAdresseZone1()
+    {
+        return $this->auditeur_sec_adresse_zone1;
+    }
+
+    /**
+     * @param mixed $auditeur_sec_adresse_zone1
+     */
+    public function setAuditeurSecAdresseZone1($auditeur_sec_adresse_zone1)
+    {
+        $this->auditeur_sec_adresse_zone1 = $auditeur_sec_adresse_zone1;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurSecAdresseZone2()
+    {
+        return $this->auditeur_sec_adresse_zone2;
+    }
+
+    /**
+     * @param mixed $auditeur_sec_adresse_zone2
+     */
+    public function setAuditeurSecAdresseZone2($auditeur_sec_adresse_zone2)
+    {
+        $this->auditeur_sec_adresse_zone2 = $auditeur_sec_adresse_zone2;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurSecCodePostal()
+    {
+        return $this->auditeur_sec_code_postal;
+    }
+
+    /**
+     * @param mixed $auditeur_sec_code_postal
+     */
+    public function setAuditeurSecCodePostal($auditeur_sec_code_postal)
+    {
+        $this->auditeur_sec_code_postal = $auditeur_sec_code_postal;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurSecVille()
+    {
+        return $this->auditeur_sec_ville;
+    }
+
+    /**
+     * @param mixed $auditeur_sec_ville
+     */
+    public function setAuditeurSecVille($auditeur_sec_ville)
+    {
+        $this->auditeur_sec_ville = $auditeur_sec_ville;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurIne()
+    {
+        return $this->auditeur_ine;
+    }
+
+    /**
+     * @param mixed $auditeur_ine
+     */
+    public function setAuditeurIne($auditeur_ine)
+    {
+        $this->auditeur_ine = $auditeur_ine;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurMelPro()
+    {
+        return $this->auditeur_mel_pro;
+    }
+
+    /**
+     * @param mixed $auditeur_mel_pro
+     */
+    public function setAuditeurMelPro($auditeur_mel_pro)
+    {
+        $this->auditeur_mel_pro = $auditeur_mel_pro;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurSecPays()
+    {
+        return $this->auditeur_sec_pays;
+    }
+
+    /**
+     * @param mixed $auditeur_sec_pays
+     */
+    public function setAuditeurSecPays($auditeur_sec_pays)
+    {
+        $this->auditeur_sec_pays = $auditeur_sec_pays;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurProfessionInsee()
+    {
+        return $this->auditeur_profession_insee;
+    }
+
+    /**
+     * @param mixed $auditeur_profession_insee
+     */
+    public function setAuditeurProfessionInsee($auditeur_profession_insee)
+    {
+        $this->auditeur_profession_insee = $auditeur_profession_insee;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurPlusHautDiplomeInitialPrepareCodeNational()
+    {
+        return $this->auditeur_plus_haut_diplome_initial_prepare_code_national;
+    }
+
+    /**
+     * @param mixed $auditeur_plus_haut_diplome_initial_prepare_code_national
+     */
+    public function setAuditeurPlusHautDiplomeInitialPrepareCodeNational($auditeur_plus_haut_diplome_initial_prepare_code_national)
+    {
+        $this->auditeur_plus_haut_diplome_initial_prepare_code_national = $auditeur_plus_haut_diplome_initial_prepare_code_national;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurPlusHautDiplomeInitialPrepare()
+    {
+        return $this->auditeur_plus_haut_diplome_initial_prepare;
+    }
+
+    /**
+     * @param mixed $auditeur_plus_haut_diplome_initial_prepare
+     */
+    public function setAuditeurPlusHautDiplomeInitialPrepare($auditeur_plus_haut_diplome_initial_prepare)
+    {
+        $this->auditeur_plus_haut_diplome_initial_prepare = $auditeur_plus_haut_diplome_initial_prepare;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurModeTransport()
+    {
+        return $this->auditeur_mode_transport;
+    }
+
+    /**
+     * @param mixed $auditeur_mode_transport
+     */
+    public function setAuditeurModeTransport($auditeur_mode_transport)
+    {
+        $this->auditeur_mode_transport = $auditeur_mode_transport;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurNumeroPoste()
+    {
+        return $this->auditeur_numero_poste;
+    }
+
+    /**
+     * @param mixed $auditeur_numero_poste
+     */
+    public function setAuditeurNumeroPoste($auditeur_numero_poste)
+    {
+        $this->auditeur_numero_poste = $auditeur_numero_poste;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurSituationFamille()
+    {
+        return $this->auditeur_situation_famille;
+    }
+
+    /**
+     * @param mixed $auditeur_situation_famille
+     */
+    public function setAuditeurSituationFamille($auditeur_situation_famille)
+    {
+        $this->auditeur_situation_famille = $auditeur_situation_famille;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getProprietaireDossier()
+    {
+        return $this->proprietaire_dossier;
+    }
+
+    /**
+     * @param mixed $proprietaire_dossier
+     */
+    public function setProprietaireDossier($proprietaire_dossier)
+    {
+        $this->proprietaire_dossier = $proprietaire_dossier;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProprietaireDossierCode()
+    {
+        return $this->proprietaire_dossier_code;
+    }
+
+    /**
+     * @param mixed $proprietaire_dossier_code
+     */
+    public function setProprietaireDossierCode($proprietaire_dossier_code)
+    {
+        $this->proprietaire_dossier_code = $proprietaire_dossier_code;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurAnneeEntreeVieActive()
+    {
+        return $this->auditeur_annee_entree_vie_active;
+    }
+
+    /**
+     * @param mixed $auditeur_annee_entree_vie_active
+     */
+    public function setAuditeurAnneeEntreeVieActive($auditeur_annee_entree_vie_active)
+    {
+        $this->auditeur_annee_entree_vie_active = $auditeur_annee_entree_vie_active;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuditeurConnuCnamDetail()
+    {
+        return $this->auditeur_connu_cnam_detail;
+    }
+
+    /**
+     * @param mixed $auditeur_connu_cnam_detail
+     */
+    public function setAuditeurConnuCnamDetail($auditeur_connu_cnam_detail)
+    {
+        $this->auditeur_connu_cnam_detail = $auditeur_connu_cnam_detail;
+    }
 
     /**
      * @return mixed
