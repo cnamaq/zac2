@@ -155,6 +155,86 @@ class InscriptionUnite extends EntityAbstract
      * @var string
      */
     protected $utilisateur_modification;
+    /**
+     * @var string
+     */
+    protected $sousgroupe_code;
+    /**
+     * @var string
+     */
+    protected $sousgroupe_libelle;
+    /**
+     * @var string
+     */
+    protected $inscription_unite_note2;
+    /**
+     * @var string
+     */
+    protected $inscription_unite_note2reel;
+
+    /**
+     * @return string
+     */
+    public function getSousgroupeCode()
+    {
+        return $this->sousgroupe_code;
+    }
+
+    /**
+     * @param string $sousgroupe_code
+     */
+    public function setSousgroupeCode($sousgroupe_code)
+    {
+        $this->sousgroupe_code = $sousgroupe_code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSousgroupeLibelle()
+    {
+        return $this->sousgroupe_libelle;
+    }
+
+    /**
+     * @param string $sousgroupe_libelle
+     */
+    public function setSousgroupeLibelle($sousgroupe_libelle)
+    {
+        $this->sousgroupe_libelle = $sousgroupe_libelle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInscriptionUniteNote2()
+    {
+        return $this->inscription_unite_note2;
+    }
+
+    /**
+     * @param string $inscription_unite_note2
+     */
+    public function setInscriptionUniteNote2($inscription_unite_note2)
+    {
+        $this->inscription_unite_note2 = $inscription_unite_note2;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInscriptionUniteNote2reel()
+    {
+        return $this->inscription_unite_note2reel;
+    }
+
+    /**
+     * @param string $inscription_unite_note2reel
+     */
+    public function setInscriptionUniteNote2reel($inscription_unite_note2reel)
+    {
+        $this->inscription_unite_note2reel = $inscription_unite_note2reel;
+    }
 
     /**
      * @return string
