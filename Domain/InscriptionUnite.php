@@ -171,6 +171,57 @@ class InscriptionUnite extends EntityAbstract
      * @var string
      */
     protected $inscription_unite_note2reel;
+    protected $date_envoi_fiche_navette;
+    protected $date_impression_fiche_navette;
+    protected $tarif_memo;
+
+    /**
+     * @return mixed
+     */
+    public function getDateEnvoiFicheNavette()
+    {
+        return $this->date_envoi_fiche_navette;
+    }
+
+    /**
+     * @param mixed $date_envoi_fiche_navette
+     */
+    public function setDateEnvoiFicheNavette($date_envoi_fiche_navette)
+    {
+        $this->date_envoi_fiche_navette = $date_envoi_fiche_navette;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateImpressionFicheNavette()
+    {
+        return $this->date_impression_fiche_navette;
+    }
+
+    /**
+     * @param mixed $date_impression_fiche_navette
+     */
+    public function setDateImpressionFicheNavette($date_impression_fiche_navette)
+    {
+        $this->date_impression_fiche_navette = $date_impression_fiche_navette;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTarifMemo()
+    {
+        return $this->tarif_memo;
+    }
+
+    /**
+     * @param mixed $tarif_memo
+     */
+    public function setTarifMemo($tarif_memo)
+    {
+        $this->tarif_memo = $tarif_memo;
+    }
 
     /**
      * @return string
