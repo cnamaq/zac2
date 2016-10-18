@@ -26,8 +26,12 @@ class SectionFactory
     protected $composante = array(
         'Cnam' => 'CN',
         'ENASS' => 'EN',
+        'Enass' => 'EN',
         'ICSV' => 'MA',
         'INTEC' => 'GE',
+        'Intec' => 'GE',
+        'ICH' => 'IH',
+        'ICH hors cursus' => 'YH',
         'Hors Cnam' => 'HC',
         'default' => 'XX',
     );
