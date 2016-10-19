@@ -18,6 +18,7 @@ class SectionFactory
         'Centre de Bordeaux' => 'BDX',
         'Centre de Pau' => 'PAU',
         'Centre d\'Anglet' => 'CBQ',
+        'Centre de Côte Basque' => 'CBQ',
         'default' => 'AQU',
     );
     /**

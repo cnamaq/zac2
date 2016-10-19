@@ -26,13 +26,53 @@ class FactureDetail extends DicAware implements ManagerInterface
 
         $dataRequest = new SqlString();
         // le filtrage doit être appliqué ici à la main
-        $sql = "SELECT facture_detail_aqu.*, u.regroupement_programme_code, u.regroupement_programme_libelle 
-                FROM facture_detail_aqu 
-                LEFT JOIN unite_ouverte_aqu as u 
-                ON u.semestre_code=facture_detail_aqu.semestre_code 
-                AND u.unite_numero=facture_detail_aqu.unite_numero 
-                AND u.annee = facture_detail_aqu.annee 
-                AND u.centre_code = facture_detail_aqu.centre_code";
+        $sql = "SELECT    facture_detail_aqu.facture_detail_numero,
+                          facture_detail_aqu.facture_numero,
+                          facture_detail_aqu.annee,
+                          facture_detail_aqu.annee_universitaire,
+                          facture_detail_aqu.type_article,
+                          facture_detail_aqu.type_facture,
+                          facture_detail_aqu.article_numero,
+                          facture_detail_aqu.article_libelle,
+                          facture_detail_aqu.unite_numero,
+                          facture_detail_aqu.unite_code,
+                          facture_detail_aqu.unite_libelle,
+                          facture_detail_aqu.semestre_code,
+                          facture_detail_aqu.semestre_libelle,
+                          facture_detail_aqu.modalite_numero,
+                          facture_detail_aqu.modalite,
+                          facture_detail_aqu.auditeur_numero,
+                          facture_detail_aqu.auditeur_code,
+                          facture_detail_aqu.auditeur_nom,
+                          facture_detail_aqu.auditeur_prenom,
+                          facture_detail_aqu.auditeur_nom_usage,
+                          facture_detail_aqu.type_client,
+                          facture_detail_aqu.entreprise_numero,
+                          facture_detail_aqu.entreprise_nom,
+                          facture_detail_aqu.cra_nom,
+                          facture_detail_aqu.client_numero,
+                          facture_detail_aqu.client_nom,
+                          facture_detail_aqu.taux_tva,
+                          facture_detail_aqu.detail_fac_prix_unitaire,
+                          facture_detail_aqu.detail_fac_quantite,
+                          facture_detail_aqu.facture_montant_total,
+                          facture_detail_aqu.date_echeance,
+                          c.centre_code,
+                          c.centre_libelle,
+                          u.regroupement_programme_code,
+                          u.regroupement_programme_libelle
+                FROM      facture_detail_aqu
+                JOIN      inscription_aqu i
+                ON        i.centre_code     = facture_detail_aqu.centre_code
+                AND       i.auditeur_numero = facture_detail_aqu.auditeur_numero
+                AND       i.annee           = facture_detail_aqu.annee
+                JOIN      centre_aqu c
+                ON        c.centre_libelle = i.centre_attachement_libelle
+                LEFT JOIN unite_ouverte_aqu u
+                ON        u.semestre_code = facture_detail_aqu.semestre_code
+                AND       u.unite_numero  = facture_detail_aqu.unite_numero
+                AND       u.annee         = facture_detail_aqu.annee
+                AND       u.centre_code   = facture_detail_aqu.centre_code";
         if ($filtre->getSql()) {
             $sql .= ' WHERE ' . $filtre->getSql();
         }
