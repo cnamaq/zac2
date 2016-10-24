@@ -11,7 +11,6 @@ namespace Zac2\Entity\Manager;
 
 use Zac2\Common\DicAware;
 use Zac2\Data\Request\SqlString;
-use Zac2\Domain\RemunerationHoraireAnnee;
 use Zac2\Filter\Multi\Multi;
 
 class TbiInscriptionUnite extends DicAware implements ManagerInterface
@@ -27,9 +26,14 @@ class TbiInscriptionUnite extends DicAware implements ManagerInterface
 
         $dataRequest = new SqlString();
         // le filtrage doit être appliqué ici à la main
-        $sql = "SELECT i.*, a.* 
+        $sql = "SELECT i.*, a.*, insc.*, uo.*
             FROM inscription_unite_aqu as i
-            LEFT JOIN auditeur_aqu as a ON a.auditeur_numero = i.auditeur_numero";
+            LEFT JOIN auditeur_aqu as a ON a.auditeur_numero = i.auditeur_numero
+            LEFT JOIN unite_ouverte_aqu as uo ON uo.centre_code = i.centre_code AND uo.annee = i.annee
+            AND uo.unite_numero = i.unite_numero AND uo.groupe_code = i.groupe_code 
+            AND uo.semestre_code = i.semestre_code
+            LEFT JOIN inscription_aqu as insc ON insc.annee = i.annee 
+            AND insc.centre_code = i.centre_code AND insc.auditeur_numero = i.auditeur_numero";
         if ($filtre->getSql()) {
             $sql .= ' WHERE ' . $filtre->getSql('i.');
         }
