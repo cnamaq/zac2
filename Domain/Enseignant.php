@@ -190,6 +190,15 @@ class Enseignant extends EntityAbstract
     /**
      * @return string
      */
+    public function getNomComplet()
+    {
+        return $this->getEnseignantNomUsage() ? $this->getEnseignantNomUsage() : $this->getEnseignantNom()
+            . ' ' . $this->getEnseignantPrenom();
+    }
+
+    /**
+     * @return string
+     */
     public function getEnseignantSexe()
     {
         return $this->enseignant_sexe;

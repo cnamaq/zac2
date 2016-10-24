@@ -76,7 +76,17 @@ class EnseignantAnnee extends DicAware implements ManagerInterface
         $entityManager->getDataRequestAdapter()->from('enseignant_aqu');
 
         $filtre->removeCritere('annee');
-        return $entityManager->get('Zac2\Domain\Enseignant', $filtre);
+
+        /** @var Enseignant[] $result */
+        $result = $entityManager->get('Zac2\Domain\Enseignant', $filtre);
+
+        $enseignantLst = array();
+        foreach ($result as $enseignant) {
+            $enseignantLst[$enseignant->getNomComplet() . $enseignant->getEnseignantCode()] = $enseignant;
+        }
+        ksort($enseignantLst);
+
+        return array_values($enseignantLst);
     }
 
 }
