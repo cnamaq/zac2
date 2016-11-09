@@ -22,7 +22,7 @@ class Emargement extends DicAware implements ManagerInterface
      */
     protected $remunerationHoraireAnnee;
 
-    public function get($entity, Multi $filtre)
+    protected function getEm($entity, Multi $filtre)
     {
         $em = $this->getDic()->get('entitymanager.gescicca.requeteur');
         $dataRequest = new SqlString();
@@ -41,11 +41,25 @@ class Emargement extends DicAware implements ManagerInterface
         $dataRequest->setSql($sql);
         $em->setDataRequestAdapter($dataRequest);
 
+        return $em;
+    }
+
+    public function getArrayData($entity, Multi $filtre)
+    {
+        $em = $this->getEm($entity, $filtre);
+        return $em->getArrayData($entity, $filtre);
+    }
+
+    public function get($entity, Multi $filtre)
+    {
+        $em = $this->getEm($entity, $filtre);
         $result = $em->get('\Zac2\Domain\Emargement', $filtre);
         foreach ($result as $emargement) {
             /** @var \Zac2\Domain\Emargement $emargement */
             $emargement->setRemunerationHoraireAnnee($this->getRemunerationHoraireAnnee($emargement->getAnnee()));
         }
+
+        return $result;
     }
 
     /**
