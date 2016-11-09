@@ -20,7 +20,7 @@ class FactureDetail extends DicAware implements ManagerInterface
      * @param Multi $filtre
      * @return array
      */
-    public function get($entity, Multi $filtre)
+    public function getArrayData($entity, Multi $filtre)
     {
         $em = $this->getDic()->get('entitymanager.gescicca.requeteur');
 
@@ -80,13 +80,19 @@ class FactureDetail extends DicAware implements ManagerInterface
         $em->setDataRequestAdapter($dataRequest);
 
         $result = $em->get('\Zac2\Domain\\' . ucfirst($entity), $filtre);
+
         $lignes = [];
         /** @var \Zac2\Domain\FactureDetail $row */
         foreach ($result as $row) {
-            $lignes[$row->getAnnee().$row->getCentreCode().$row->getUniteNumero().$row->getSemestreCode()] = $row;
+            $lignes[$row->getAnnee().$row->getCentreCode().$row->getUniteNumero().$row->getSemestreCode().$row->getAuditeurCode()] = $row;
         }
 
         return $lignes;
+    }
+
+    public function get($entity, Multi $filtre)
+    {
+        return $this->getArrayData($entity, $filtre);
     }
 
 }
