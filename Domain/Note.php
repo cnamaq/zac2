@@ -487,12 +487,4 @@ class Note extends EntityAbstract
         $this->note_max = $note_max;
     }
 
-    /**
-     * @return bool
-     */
-    public function isAbsentExamen()
-    {
-        return ($this->getNote() && $this->getNoteMax());
-    }
-
 }
