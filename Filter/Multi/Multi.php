@@ -5,6 +5,7 @@
 
 namespace Zac2\Filter\Multi;
 
+use Zac2\Common\DateTime;
 use Zac2\Data\Request\FilterInterface;
 
 class Multi implements FilterInterface
@@ -187,7 +188,8 @@ class Multi implements FilterInterface
         foreach ($this->getCritereLst() as $critere) {
             if ($this->critereIsActive($critere)) {
                 if (preg_match('/_date/', $critere->getKey())) {
-                    $value = "convert(datetime, '{$critere->getValue()}')";
+                    $date = new DateTime($critere->getValue());
+                    $value = "convert(datetime, '{$date->format('d/m/Y')}')";
                 } else {
                     $value = "'" . $critere->getValue() . "'";
                 }
