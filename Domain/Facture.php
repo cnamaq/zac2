@@ -256,7 +256,7 @@ class Facture extends EntityAbstract
      */
     public function getFactureCodeInterne()
     {
-        return $this->facture_code_interne;
+        return sprintf('%06d', $this->facture_code_interne);
     }
 
     /**
