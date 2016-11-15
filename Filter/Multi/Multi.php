@@ -183,6 +183,7 @@ class Multi implements FilterInterface
             'notIsNull' => 'IS NOT NULL',
             'greaterThan' => '>',
             'lessThan' => '<',
+            'in' => 'IN',
         );
         $sql = array();
         foreach ($this->getCritereLst() as $critere) {
@@ -190,6 +191,8 @@ class Multi implements FilterInterface
                 if (preg_match('/_date/', $critere->getKey())) {
                     $date = new DateTime($critere->getValue());
                     $value = "convert(datetime, '{$date->format('d/m/Y')}')";
+                } elseif (is_array($critere->getValue())) {
+                    $value = "('" . implode("', '", $critere->getValue()) . "')";
                 } else {
                     $value = "'" . $critere->getValue() . "'";
                 }
