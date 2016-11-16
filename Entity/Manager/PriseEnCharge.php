@@ -15,7 +15,8 @@ use Zac2\Filter\Multi\Multi;
 
 class PriseEnCharge extends DicAware implements ManagerInterface
 {
-    public function get($entity, Multi $filtre)
+
+    public function getArrayData($entity, Multi $filtre)
     {
         $em = $this->getDic()->get('entitymanager.gescicca.requeteur');
         $dataRequest = new SqlString();
@@ -43,7 +44,12 @@ class PriseEnCharge extends DicAware implements ManagerInterface
             WHERE p.annee={$filtre->getCritere('annee')->getValue()}");
         $em->setDataRequestAdapter($dataRequest);
 
-        return $em->get('\Zac2\Domain\PriseEnCharge', $filtre);
+        return $em->getArrayData('\Zac2\Domain\PriseEnCharge', $filtre);
+    }
+
+    public function get($entity, Multi $filtre)
+    {
+        return $this->getArrayData($entity, $filtre);
     }
 
 }
