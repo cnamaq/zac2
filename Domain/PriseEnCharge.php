@@ -131,6 +131,14 @@ class PriseEnCharge extends EntityAbstract implements LigneInterface
      */
     protected $modalite;
     /**
+     * @var int
+     */
+    protected $groupe_code;
+    /**
+     * @var int
+     */
+    protected $sousgroupe_code;
+    /**
      * @var DateTime
      */
     protected $inscription_date;
@@ -780,6 +788,38 @@ class PriseEnCharge extends EntityAbstract implements LigneInterface
     public function setModalite($modalite)
     {
         $this->modalite = $modalite;
+    }
+
+    /**
+     * @return int
+     */
+    public function getGroupeCode()
+    {
+        return $this->groupe_code;
+    }
+
+    /**
+     * @param int $groupe_code
+     */
+    public function setGroupeCode($groupe_code)
+    {
+        $this->groupe_code = $groupe_code;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSousgroupeCode()
+    {
+        return $this->sousgroupe_code;
+    }
+
+    /**
+     * @param int $sousgroupe_code
+     */
+    public function setSousgroupeCode($sousgroupe_code)
+    {
+        $this->sousgroupe_code = $sousgroupe_code;
     }
 
     /**
