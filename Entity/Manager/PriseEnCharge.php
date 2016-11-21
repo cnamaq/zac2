@@ -22,7 +22,7 @@ class PriseEnCharge extends DicAware implements ManagerInterface
         // le filtrage doit être appliqué ici à la main
         $dataRequest->setSql("SELECT p.*, 
                 i.inscription_date, i.centre_attachement_libelle,
-                iu.inscription_unite_date_creation, iu.modalite, iu.groupe_code, iu.sousgroupe_code
+                iu.inscription_unite_date_creation, iu.modalite, iu.groupe_code, iu.sousgroupe_code,
                 u.unite_code, u.unite_nb_heure, u.unite_ects,
                 uo.regroupement_programme_code, uo.regroupement_programme_libelle
             FROM prise_en_charge_aqu as p
