@@ -20,7 +20,7 @@ class PriseEnCharge extends DicAware implements ManagerInterface
         $em = $this->getDic()->get('entitymanager.gescicca.requeteur');
         $dataRequest = new SqlString();
         // le filtrage doit être appliqué ici à la main
-        $dataRequest->setSql("SELECT p.*, 
+        $sql = "SELECT p.*, 
                 i.inscription_date, i.centre_attachement_libelle,
                 iu.inscription_unite_date_creation, iu.modalite, iu.groupe_code, iu.sousgroupe_code,
                 u.unite_code, u.unite_nb_heure, u.unite_ects,
@@ -39,8 +39,11 @@ class PriseEnCharge extends DicAware implements ManagerInterface
                 AND uo.annee = p.annee 
                 AND uo.unite_numero = p.unite_numero
                 AND uo.semestre_code = p.semestre_code
-                AND uo.groupe_code = iu.groupe_code
-            WHERE p.annee={$filtre->getCritere('annee')->getValue()}");
+                AND uo.groupe_code = iu.groupe_code";
+        if ($filtre->getSql()) {
+            $sql .= ' WHERE ' . $filtre->getSql('p.');
+        }
+        $dataRequest->setSql($sql);
         $em->setDataRequestAdapter($dataRequest);
 
         return $em;
