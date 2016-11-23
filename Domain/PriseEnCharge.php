@@ -724,7 +724,7 @@ class PriseEnCharge extends EntityAbstract implements LigneInterface
         if (is_null($this->getUniteNumero())) {
             return new \DateTime(($this->getAnnee() + 1) . '-08-31');
         }
-        if (preg_match('/^UA|^VAE|^VES|^VAP/i', $this->getUniteNumero())) {
+        if (preg_match('/^UA|^R0VAE|R00VES|R00VAP/i', $this->getUniteCode())) {
             $dateFin = clone($this->getDateInscription());
             return $dateFin->modify('+ 1 year');
         } else {
@@ -750,16 +750,16 @@ class PriseEnCharge extends EntityAbstract implements LigneInterface
         if (is_null($this->getUniteNumero())) {
             return new \DateTime($this->getAnnee() . '-09-01');
         }
-        if (preg_match('/^UA|^VAE|^VES|^VAP/i', $this->getUniteCode())) {
+        if (preg_match('/^UA|^R0VAE|R00VES|R00VAP/i', $this->getUniteCode())) {
             return $this->getDateInscription();
         } else {
             switch ($this->getSemestreCode()) {
                 case '1' :
-                    return new DateTime($this->getAnnee() . '-10-01 00:01');
+                    return new DateTime( $this->getAnnee()      . '-10-01 00:01');
                 case '2' :
                     return new DateTime(($this->getAnnee() + 1) . '-02-01 00:01');
                 case '3' :
-                    return new DateTime($this->getAnnee() . '-10-01 00:01');
+                    return new DateTime( $this->getAnnee()      . '-10-01 00:01');
                 default :
                     throw new \Exception('code semestre inconnu : ' . $this->getSemestreCode());
             }
