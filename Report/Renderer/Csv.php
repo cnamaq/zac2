@@ -33,7 +33,11 @@ class Csv implements Renderable
             $result = array();
             foreach ($this->config['fields'] as $field) {
                 $method = 'get' . ucfirst($field);
-                $result[] = $container->$method();
+                $value  = $container->$method();
+
+                if (is_float($value)) { $value = str_replace('.', ',', $value); }
+
+                $result[] = utf8_decode($value);
             }
 
             return implode(';', $result) . chr(13) . chr(10);
