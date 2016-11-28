@@ -42,6 +42,7 @@ class Evenement extends EntityAbstract
     protected $sousgroupe_libelle;
     protected $matiere_code;
     protected $matiere_libelle;
+    protected $heures_realisees;
 
     /**
      * @return mixed
@@ -552,6 +553,22 @@ class Evenement extends EntityAbstract
     public function setEnseignantNomUsage($enseignant_nom_usage)
     {
         $this->enseignant_nom_usage = $enseignant_nom_usage;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHeuresRealisees()
+    {
+        return $this->heures_realisees;
+    }
+
+    /**
+     * @param mixed $heures_realisees
+     */
+    public function setHeuresRealisees($heures_realisees)
+    {
+        $this->heures_realisees = $heures_realisees;
     }
 
 }
