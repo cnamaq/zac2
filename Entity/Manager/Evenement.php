@@ -11,12 +11,14 @@ namespace Zac2\Entity\Manager;
 
 use Zac2\Common\DicAware;
 use Zac2\Data\Request\SqlString;
+use Zac2\Entity\Manager;
 use Zac2\Filter\Multi\Multi;
 
 class Evenement extends DicAware implements ManagerInterface
 {
     public function getEm($entity, Multi $filtre)
     {
+        /** @var Manager $em */
         $em = $this->getDic()->get('entitymanager.gescicca.requeteur');
         $dataRequest = new SqlString();
         // le filtrage doit être appliqué ici à la main
@@ -27,7 +29,7 @@ class Evenement extends DicAware implements ManagerInterface
                 LEFT JOIN emargement_aqu em
                 ON        em.evenement_code = ev.evenement_code";
         if ($filtre->getSql()) {
-            $sql .= ' WHERE ' . $filtre->getSql('p.');
+            $sql .= ' WHERE ' . $filtre->getSql('ev.');
         }
         $dataRequest->setSql($sql);
         $em->setDataRequestAdapter($dataRequest);
