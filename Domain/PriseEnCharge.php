@@ -170,6 +170,10 @@ class PriseEnCharge extends EntityAbstract implements LigneInterface
      * @var string
      */
     protected $regroupement_programme_libelle;
+    /** @var  int */
+    protected $formation_numero;
+    /** @var  string */
+    protected $formation_libelle;
 
     /**
      * @return string
@@ -942,6 +946,38 @@ class PriseEnCharge extends EntityAbstract implements LigneInterface
     function getCodeForProjetAnalytique()
     {
         return null;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFormationNumero()
+    {
+        return $this->formation_numero;
+    }
+
+    /**
+     * @param int $formation_numero
+     */
+    public function setFormationNumero($formation_numero)
+    {
+        $this->formation_numero = $formation_numero;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFormationLibelle()
+    {
+        return $this->formation_libelle;
+    }
+
+    /**
+     * @param string $formation_libelle
+     */
+    public function setFormationLibelle($formation_libelle)
+    {
+        $this->formation_libelle = $formation_libelle;
     }
 
 }
