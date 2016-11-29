@@ -5,9 +5,7 @@
 
 namespace Zac2\Entity;
 
-use Zac2\Common\DicAware;
-
-abstract class EntityAbstract extends DicAware
+abstract class EntityAbstract
 {
 
     /**
