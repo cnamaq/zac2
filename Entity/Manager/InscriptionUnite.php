@@ -30,7 +30,7 @@ class InscriptionUnite extends DicAware implements ManagerInterface
                 LEFT JOIN unite_aqu u
                 ON        u.unite_numero = iu.unite_numero";
         if ($filtre->getSql()) {
-            $sql .= ' WHERE ' . $filtre->getSql('p.');
+            $sql .= ' WHERE ' . $filtre->getSql('iu.');
         }
         $dataRequest->setSql($sql);
         $em->setDataRequestAdapter($dataRequest);
