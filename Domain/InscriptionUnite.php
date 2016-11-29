@@ -3,178 +3,105 @@
 namespace Zac2\Domain;
 
 
+use Zac2\Common\DateTime;
 use Zac2\Entity\EntityAbstract;
 
 class InscriptionUnite extends EntityAbstract
 {
-    /**
-     * @var string
-     */
+
+    /** @var  string */
     protected $annee_universitaire;
-    /**
-     * @var integer
-     */
+    /** @var  int */
     protected $annee;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $centre_code;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $centre_libelle;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $centre_attachement_libelle;
-    /**
-     * @var integer
-     */
+    /** @var  int */
     protected $auditeur_numero;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $auditeur_code;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $auditeur_nom;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $auditeur_prenom;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $auditeur_nom_usage;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $semestre_code;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $semestre_libelle;
-    /**
-     * @var integer
-     */
+    /** @var  int */
     protected $unite_numero;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $unite_code;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $unite_libelle1;
-    /**
-     * @var integer
-     */
+    /** @var  int */
     protected $unite_ects;
-    /**
-     * @var string
-     */
+    /** @var  float */
+    protected $unite_nb_heure;
+    /** @var  string */
     protected $type_tarif_code;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $type_tarif_libelle;
-    /**
-     * @var float
-     */
+    /** @var  float */
     protected $inscription_unite_montant;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $inscription_unite_cra;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $groupe_code;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $groupe_libelle;
-    /**
-     * @var integer
-     */
+    /** @var  int */
     protected $type_notation_numero;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $note_max;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $inscription_unite_inscrit_session2;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $inscription_unite_etat;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $inscription_unite_date_creation;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $inscription_unite_origine_preins;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $utilisateur_creation;
-    /**
-     * @var  string
-     */
+    /** @var  string */
     protected $date_creation;
-    /**
-     * @var float
-     */
+    /** @var  float */
     protected $inscription_unite_note1;
-    /**
-     * @var float
-     */
+    /** @var  float */
     protected $inscription_unite_note1reel;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $inscription_unite_type_obtention;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $modalite;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $date_modification;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $inscription_unite_date_modification;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $utilisateur_modification;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $sousgroupe_code;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $sousgroupe_libelle;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $inscription_unite_note2;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $inscription_unite_note2reel;
+    /** @var  DateTime */
     protected $date_envoi_fiche_navette;
+    /** @var  DateTime */
     protected $date_impression_fiche_navette;
+    /** @var  string */
     protected $tarif_memo;
+    /** @var  int */
     protected $formation_numero;
+    /** @var  string */
     protected $formation_libelle;
 
 
@@ -191,7 +118,7 @@ class InscriptionUnite extends EntityAbstract
      */
     public function setDateEnvoiFicheNavette($date_envoi_fiche_navette)
     {
-        $this->date_envoi_fiche_navette = $date_envoi_fiche_navette;
+        $this->date_envoi_fiche_navette = new DateTime($date_envoi_fiche_navette);
     }
 
     /**
@@ -207,7 +134,7 @@ class InscriptionUnite extends EntityAbstract
      */
     public function setDateImpressionFicheNavette($date_impression_fiche_navette)
     {
-        $this->date_impression_fiche_navette = $date_impression_fiche_navette;
+        $this->date_impression_fiche_navette = new DateTime($date_impression_fiche_navette);
     }
 
     /**
@@ -547,6 +474,22 @@ class InscriptionUnite extends EntityAbstract
     }
 
     /**
+     * @return float
+     */
+    public function getUniteNbHeure()
+    {
+        return $this->unite_nb_heure;
+    }
+
+    /**
+     * @param float $unite_nb_heure
+     */
+    public function setUniteNbHeure($unite_nb_heure)
+    {
+        $this->unite_nb_heure = $unite_nb_heure;
+    }
+
+    /**
      * @return string
      */
     public function getTypeTarifCode()
@@ -883,7 +826,7 @@ class InscriptionUnite extends EntityAbstract
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getFormationNumero()
     {
@@ -891,7 +834,7 @@ class InscriptionUnite extends EntityAbstract
     }
 
     /**
-     * @param mixed $formation_numero
+     * @param int $formation_numero
      */
     public function setFormationNumero($formation_numero)
     {
@@ -899,7 +842,7 @@ class InscriptionUnite extends EntityAbstract
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getFormationLibelle()
     {
@@ -907,11 +850,11 @@ class InscriptionUnite extends EntityAbstract
     }
 
     /**
-     * @param mixed $formation_libelle
+     * @param string $formation_libelle
      */
     public function setFormationLibelle($formation_libelle)
     {
         $this->formation_libelle = $formation_libelle;
     }
-    
+
 }

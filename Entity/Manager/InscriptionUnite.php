@@ -24,8 +24,7 @@ class InscriptionUnite extends DicAware implements ManagerInterface
         $dataRequest = new SqlString();
         // le filtrage doit être appliqué ici à la main
         $sql = "SELECT    iu.*,
-                          u.unite_nb_heure,
-                          u.unite_ects
+                          u.unite_nb_heure
                 FROM      inscription_unite_aqu iu
                 LEFT JOIN unite_aqu u
                 ON        u.unite_numero = iu.unite_numero";
