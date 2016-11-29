@@ -174,6 +174,9 @@ class InscriptionUnite extends EntityAbstract
     protected $date_envoi_fiche_navette;
     protected $date_impression_fiche_navette;
     protected $tarif_memo;
+    protected $formation_numero;
+    protected $formation_libelle;
+
 
     /**
      * @return mixed
@@ -877,6 +880,38 @@ class InscriptionUnite extends EntityAbstract
     public function setDateModification($date_modification)
     {
         $this->date_modification = $date_modification;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFormationNumero()
+    {
+        return $this->formation_numero;
+    }
+
+    /**
+     * @param mixed $formation_numero
+     */
+    public function setFormationNumero($formation_numero)
+    {
+        $this->formation_numero = $formation_numero;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFormationLibelle()
+    {
+        return $this->formation_libelle;
+    }
+
+    /**
+     * @param mixed $formation_libelle
+     */
+    public function setFormationLibelle($formation_libelle)
+    {
+        $this->formation_libelle = $formation_libelle;
     }
     
 }

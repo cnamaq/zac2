@@ -43,6 +43,8 @@ class Inscription extends EntityAbstract
     protected $date_modification;
     protected $inscription_promotion;
     protected $inscription_temps_travail;
+    protected $formation_numero;
+    protected $formation_libelle;
 
     /**
      * @return mixed
@@ -572,5 +574,36 @@ class Inscription extends EntityAbstract
         $this->date_creation = $date_creation;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getFormationNumero()
+    {
+        return $this->formation_numero;
+    }
+
+    /**
+     * @param mixed $formation_numero
+     */
+    public function setFormationNumero($formation_numero)
+    {
+        $this->formation_numero = $formation_numero;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFormationLibelle()
+    {
+        return $this->formation_libelle;
+    }
+
+    /**
+     * @param mixed $formation_libelle
+     */
+    public function setFormationLibelle($formation_libelle)
+    {
+        $this->formation_libelle = $formation_libelle;
+    }
 
 }
