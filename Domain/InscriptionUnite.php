@@ -100,6 +100,10 @@ class InscriptionUnite extends EntityAbstract
     /** @var  string */
     protected $tarif_memo;
     /** @var  int */
+    protected $regroupement_programme_code;
+    /** @var  string */
+    protected $regroupement_programme_libelle;
+    /** @var  int */
     protected $formation_numero;
     /** @var  string */
     protected $formation_libelle;
@@ -823,6 +827,38 @@ class InscriptionUnite extends EntityAbstract
     public function setDateModification($date_modification)
     {
         $this->date_modification = $date_modification;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRegroupementProgrammeCode()
+    {
+        return $this->regroupement_programme_code;
+    }
+
+    /**
+     * @param int $regroupement_programme_code
+     */
+    public function setRegroupementProgrammeCode($regroupement_programme_code)
+    {
+        $this->regroupement_programme_code = $regroupement_programme_code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRegroupementProgrammeLibelle()
+    {
+        return $this->regroupement_programme_libelle;
+    }
+
+    /**
+     * @param string $regroupement_programme_libelle
+     */
+    public function setRegroupementProgrammeLibelle($regroupement_programme_libelle)
+    {
+        $this->regroupement_programme_libelle = $regroupement_programme_libelle;
     }
 
     /**
