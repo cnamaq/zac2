@@ -5,46 +5,45 @@
 
 namespace Zac2\Analytique;
 
-
 class SectionFactory
 {
     /**
      * @var array
      */
     protected $site = array(
-        'BX' => 'BDX',
-        'PA' => 'PAU',
-        'CB' => 'CBQ',
-        'Centre de Bordeaux' => 'BDX',
-        'Centre de Pau' => 'PAU',
-        'Centre d\'Anglet' => 'CBQ',
+        'BX'                    => 'BDX',
+        'Centre de Bordeaux'    => 'BDX',
+        'PA'                    => 'PAU',
+        'Centre de Pau'         => 'PAU',
+        'CB'                    => 'CBQ',
+        'Centre d\'Anglet'      => 'CBQ',
         'Centre de Côte Basque' => 'CBQ',
-        'default' => 'AQU',
+        'default'               => 'AQU',
     );
     /**
      * @var array
      */
     protected $composante = array(
-        'Cnam' => 'CN',
-        'ENASS' => 'EN',
-        'Enass' => 'EN',
-        'ICSV' => 'MA',
-        'INTEC' => 'GE',
-        'Intec' => 'GE',
-        'ICH' => 'IH',
+        'Cnam'            => 'CN',
+        'ENASS'           => 'EN',
+        'Enass'           => 'EN',
+        'ICSV'            => 'MA',
+        'INTEC'           => 'GE',
+        'Intec'           => 'GE',
+        'ICH'             => 'IH',
         'ICH hors cursus' => 'YH',
-        'Hors Cnam' => 'HC',
-        'default' => 'XX',
+        'Hors Cnam'       => 'HC',
+        'default'         => 'XX',
     );
     /**
      * @var array
      */
     protected $modalite = array(
-        'FOD régionale' => 'FD',
-        'FOD' => 'FD',
+        'FOD régionale'     => 'FD',
+        'FOD'               => 'FD',
         'Formation Hybride' => 'MX',
-        'Présentiel' => 'PR',
-        'default' => 'XX',
+        'Présentiel'        => 'PR',
+        'default'           => 'XX',
     );
     /**
      * @var array
@@ -60,10 +59,10 @@ class SectionFactory
     public function create(LigneInterface $ligne)
     {
         return new Section(array(
-            'site'          => self::getSousSectionCode('site', $ligne->getCodeForSiteAnalytique()),
-            'composante'    => self::getSousSectionCode('composante', $ligne->getCodeForComposanteAnalytique()),
-            'modalite'      => self::getSousSectionCode('modalite', $ligne->getCodeForModaliteAnalytique()),
-            'projet'        => self::getSousSectionCode('projet', $ligne->getCodeForProjetAnalytique()),
+            'site'       => self::getSousSectionCode('site'      , $ligne->getCodeForSiteAnalytique()      ),
+            'composante' => self::getSousSectionCode('composante', $ligne->getCodeForComposanteAnalytique()),
+            'modalite'   => self::getSousSectionCode('modalite'  , $ligne->getCodeForModaliteAnalytique()  ),
+            'projet'     => self::getSousSectionCode('projet'    , $ligne->getCodeForProjetAnalytique()    ),
         ));
     }
 
