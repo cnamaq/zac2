@@ -89,16 +89,16 @@ class Manager
     {
         $id = $this->getCacheId($entity . 'data', $filterMulti);
         if (!$this->getCache()->contains($id)) {
-            $container = \Zend_Controller_Front::getInstance()->getParam('bootstrap')->getResource('dic');
-            $logger    = $container->get('logger');
+//            $container = \Zend_Controller_Front::getInstance()->getParam('bootstrap')->getResource('dic');
+//            $logger    = $container->get('logger');
             if (!is_null($filterMulti)) {
                 $dataRequestAdapter = $filterMulti->filter($this->getDataRequestAdapter());
             } else {
                 $dataRequestAdapter = $this->getDataRequestAdapter();
             }
-            if ($logger) {
-                $logger->debug($dataRequestAdapter->getRequest());
-            }
+//            if ($logger) {
+//                $logger->debug($dataRequestAdapter->getRequest());
+//            }
             $rawData   = $this->getDataClient()->read($dataRequestAdapter);
             $arrayData = $this->getParser()->parse($rawData);
             $this->getCache()->save($id, $arrayData);
