@@ -32,6 +32,9 @@ class SectionFactory
         'Intec'           => 'GE',
         'ICH'             => 'IH',
         'ICH hors cursus' => 'YH',
+        'TIM'             => 'SA',
+        'Tim'             => 'SA',
+        'VAE/VAP/VES'     => 'VA',
         'Hors Cnam'       => 'HC',
         'default'         => 'XX',
     );
