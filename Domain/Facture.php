@@ -19,6 +19,7 @@ class Facture extends EntityAbstract
     protected $type_client;
     protected $entreprise_numero;
     protected $entreprise_nom;
+    protected $cra_nom;
     protected $facture_gestionnaire;
     protected $facture_info1;
     protected $facture_info2;
@@ -393,6 +394,22 @@ class Facture extends EntityAbstract
     public function setEntrepriseNom($entreprise_nom)
     {
         $this->entreprise_nom = $entreprise_nom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCraNom()
+    {
+        return $this->cra_nom;
+    }
+
+    /**
+     * @param mixed $cra_nom
+     */
+    public function setCraNom($cra_nom)
+    {
+        $this->cra_nom = $cra_nom;
     }
 
     /**

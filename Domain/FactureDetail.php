@@ -104,6 +104,8 @@ class FactureDetail extends EntityAbstract implements LigneInterface
      * @var string
      */
     protected $entreprise_nom;
+    /** @var  string */
+    protected $cra_nom;
     /**
      * @var float
      */
@@ -507,6 +509,22 @@ class FactureDetail extends EntityAbstract implements LigneInterface
     public function setEntrepriseNom($entreprise_nom)
     {
         $this->entreprise_nom = $entreprise_nom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCraNom()
+    {
+        return $this->cra_nom;
+    }
+
+    /**
+     * @param string $cra_nom
+     */
+    public function setCraNom($cra_nom)
+    {
+        $this->cra_nom = $cra_nom;
     }
 
     /**
