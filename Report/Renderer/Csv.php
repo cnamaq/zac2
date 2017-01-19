@@ -40,7 +40,7 @@ class Csv implements Renderable
                 $result[] = utf8_decode($value);
             }
 
-            return implode(';', $result) . chr(13) . chr(10);
+            return implode(';', $result) . PHP_EOL;
         }
     }
 
