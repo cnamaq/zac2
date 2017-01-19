@@ -6,9 +6,10 @@
 namespace Zac2\Report\Container;
 
 
+use Zac2\Common\DicAware;
 use Zac2\Report\Renderer\Renderable;
 
-abstract class ContainerAbstract implements CompositeInterface
+abstract class ContainerAbstract extends DicAware implements CompositeInterface
 {
 
     /** @var  Renderable */
