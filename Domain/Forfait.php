@@ -2,6 +2,7 @@
 namespace Zac2\Domain;
 
 use Zac2\Analytique\LigneInterface;
+use Zac2\Common\DateTime;
 use Zac2\Entity\EntityAbstract;
 
 /**
@@ -10,302 +11,77 @@ use Zac2\Entity\EntityAbstract;
 class Forfait extends EntityAbstract implements LigneInterface
 {
 
-    /**
-     * @var string
-     */
+    /** @var  int */
     protected $annee;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $anneeUniversitaire;
-    /**
-     * @var string
-     */
+    /** @var  int */
     protected $centreCode;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $centreLibelle;
-    /**
-     * @var string
-     */
+    /** @var  int */
     protected $enseignantCode;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignantNom;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignantPrenom;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignantNomUsage;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $remunerationForfaitaireBordereau;
-    /**
-     * @var string
-     */
+    /** @var  DateTime */
     protected $remunerationForfaitaireBordereauDate;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $remunerationForfaitaireLibelle;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $remunerationForfaitaireTypeSaisie;
-    /**
-     * @var string
-     */
+    /** @var  float */
     protected $remunerationForfaitaireMontantTotal;
-    /**
-     * @var string
-     */
+    /** @var  float */
     protected $remunerationForfaitaireHeuresTotal;
-    /**
-     * @var string
-     */
+    /** @var  float */
     protected $remunerationForfaitaireHeuresCours;
-    /**
-     * @var string
-     */
+    /** @var  float */
     protected $remunerationForfaitaireHeuresTd;
-    /**
-     * @var string
-     */
+    /** @var  float */
     protected $remunerationForfaitaireHeuresTp;
-    /**
-     * @var string
-     */
+    /** @var  float */
     protected $remunerationForfaitaireHeuresExamen;
-    /**
-     * @var string
-     */
+    /** @var  float */
     protected $remunerationForfaitaireHeuresAutre;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $remunerationForfaitairePayee;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $remuneration_forfaitaire_memo;
-    /**
-     * @var int
-     */
+    /** @var  int */
     protected $enseignant_matricule;
+    /** @var  string */
     protected $bordereau_annee_universitaire;
+    /** @var  int */
     protected $unite_numero;
+    /** @var  string */
     protected $unite_code;
+    /** @var  string */
     protected $unite_libelle;
+    /** @var  int */
     protected $unite_ects;
+    /** @var  int */
     protected $semestre_code;
+    /** @var  string */
     protected $semestre_libelle;
+    /** @var  int */
     protected $groupe_code;
+    /** @var  string */
     protected $groupe_libelle;
+    /** @var  string */
     protected $modalite;
+    /** @var  int */
     protected $regroupement_programme_code;
+    /** @var  string */
     protected $regroupement_programme_libelle;
 
     /**
-     * @return mixed
-     */
-    public function getRegroupementProgrammeCode()
-    {
-        return $this->regroupement_programme_code;
-    }
-
-    /**
-     * @param mixed $regroupement_programme_code
-     */
-    public function setRegroupementProgrammeCode($regroupement_programme_code)
-    {
-        $this->regroupement_programme_code = $regroupement_programme_code;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRegroupementProgrammeLibelle()
-    {
-        return $this->regroupement_programme_libelle;
-    }
-
-    /**
-     * @param mixed $regroupement_programme_libelle
-     */
-    public function setRegroupementProgrammeLibelle($regroupement_programme_libelle)
-    {
-        $this->regroupement_programme_libelle = $regroupement_programme_libelle;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getBordereauAnneeUniversitaire()
-    {
-        return $this->bordereau_annee_universitaire;
-    }
-
-    /**
-     * @param mixed $bordereau_annee_universitaire
-     */
-    public function setBordereauAnneeUniversitaire($bordereau_annee_universitaire)
-    {
-        $this->bordereau_annee_universitaire = $bordereau_annee_universitaire;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUniteNumero()
-    {
-        return $this->unite_numero;
-    }
-
-    /**
-     * @param mixed $unite_numero
-     */
-    public function setUniteNumero($unite_numero)
-    {
-        $this->unite_numero = $unite_numero;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUniteCode()
-    {
-        return $this->unite_code;
-    }
-
-    /**
-     * @param mixed $unite_code
-     */
-    public function setUniteCode($unite_code)
-    {
-        $this->unite_code = $unite_code;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUniteLibelle()
-    {
-        return $this->unite_libelle;
-    }
-
-    /**
-     * @param mixed $unite_libelle
-     */
-    public function setUniteLibelle($unite_libelle)
-    {
-        $this->unite_libelle = $unite_libelle;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUniteEcts()
-    {
-        return $this->unite_ects;
-    }
-
-    /**
-     * @param mixed $unite_ects
-     */
-    public function setUniteEcts($unite_ects)
-    {
-        $this->unite_ects = $unite_ects;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSemestreCode()
-    {
-        return $this->semestre_code;
-    }
-
-    /**
-     * @param mixed $semestre_code
-     */
-    public function setSemestreCode($semestre_code)
-    {
-        $this->semestre_code = $semestre_code;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSemestreLibelle()
-    {
-        return $this->semestre_libelle;
-    }
-
-    /**
-     * @param mixed $semestre_libelle
-     */
-    public function setSemestreLibelle($semestre_libelle)
-    {
-        $this->semestre_libelle = $semestre_libelle;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getGroupeCode()
-    {
-        return $this->groupe_code;
-    }
-
-    /**
-     * @param mixed $groupe_code
-     */
-    public function setGroupeCode($groupe_code)
-    {
-        $this->groupe_code = $groupe_code;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getGroupeLibelle()
-    {
-        return $this->groupe_libelle;
-    }
-
-    /**
-     * @param mixed $groupe_libelle
-     */
-    public function setGroupeLibelle($groupe_libelle)
-    {
-        $this->groupe_libelle = $groupe_libelle;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getModalite()
-    {
-        return $this->modalite;
-    }
-
-    /**
-     * @param mixed $modalite
-     */
-    public function setModalite($modalite)
-    {
-        $this->modalite = $modalite;
-    }
-
-    /**
-     * @return string
+     * @return int
      */
     public function getAnnee()
     {
@@ -313,7 +89,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @param string $annee
+     * @param int $annee
      */
     public function setAnnee($annee)
     {
@@ -337,7 +113,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getCentreCode()
     {
@@ -345,7 +121,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @param string $centreCode
+     * @param int $centreCode
      */
     public function setCentreCode($centreCode)
     {
@@ -369,7 +145,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getEnseignantCode()
     {
@@ -377,7 +153,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @param string $enseignantCode
+     * @param int $enseignantCode
      */
     public function setEnseignantCode($enseignantCode)
     {
@@ -449,7 +225,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @return string
+     * @return DateTime
      */
     public function getRemunerationForfaitaireBordereauDate()
     {
@@ -457,11 +233,11 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @param string $remunerationForfaitaireBordereauDate
+     * @param DateTime $remunerationForfaitaireBordereauDate
      */
     public function setRemunerationForfaitaireBordereauDate($remunerationForfaitaireBordereauDate)
     {
-        $this->remunerationForfaitaireBordereauDate = $remunerationForfaitaireBordereauDate;
+        $this->remunerationForfaitaireBordereauDate = new DateTime($remunerationForfaitaireBordereauDate);
     }
 
     /**
@@ -497,7 +273,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getRemunerationForfaitaireMontantTotal()
     {
@@ -505,7 +281,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @param string $remunerationForfaitaireMontantTotal
+     * @param float $remunerationForfaitaireMontantTotal
      */
     public function setRemunerationForfaitaireMontantTotal($remunerationForfaitaireMontantTotal)
     {
@@ -513,7 +289,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getRemunerationForfaitaireHeuresTotal()
     {
@@ -521,7 +297,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @param string $remunerationForfaitaireHeuresTotal
+     * @param float $remunerationForfaitaireHeuresTotal
      */
     public function setRemunerationForfaitaireHeuresTotal($remunerationForfaitaireHeuresTotal)
     {
@@ -529,7 +305,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getRemunerationForfaitaireHeuresCours()
     {
@@ -537,7 +313,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @param string $remunerationForfaitaireHeuresCours
+     * @param float $remunerationForfaitaireHeuresCours
      */
     public function setRemunerationForfaitaireHeuresCours($remunerationForfaitaireHeuresCours)
     {
@@ -545,7 +321,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getRemunerationForfaitaireHeuresTd()
     {
@@ -553,7 +329,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @param string $remunerationForfaitaireHeuresTd
+     * @param float $remunerationForfaitaireHeuresTd
      */
     public function setRemunerationForfaitaireHeuresTd($remunerationForfaitaireHeuresTd)
     {
@@ -561,7 +337,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getRemunerationForfaitaireHeuresTp()
     {
@@ -569,7 +345,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @param string $remunerationForfaitaireHeuresTp
+     * @param float $remunerationForfaitaireHeuresTp
      */
     public function setRemunerationForfaitaireHeuresTp($remunerationForfaitaireHeuresTp)
     {
@@ -577,7 +353,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getRemunerationForfaitaireHeuresExamen()
     {
@@ -585,7 +361,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @param string $remunerationForfaitaireHeuresExamen
+     * @param float $remunerationForfaitaireHeuresExamen
      */
     public function setRemunerationForfaitaireHeuresExamen($remunerationForfaitaireHeuresExamen)
     {
@@ -593,7 +369,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @return string
+     * @return float
      */
     public function getRemunerationForfaitaireHeuresAutre()
     {
@@ -601,7 +377,7 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
-     * @param string $remunerationForfaitaireHeuresAutre
+     * @param float $remunerationForfaitaireHeuresAutre
      */
     public function setRemunerationForfaitaireHeuresAutre($remunerationForfaitaireHeuresAutre)
     {
@@ -625,6 +401,22 @@ class Forfait extends EntityAbstract implements LigneInterface
     }
 
     /**
+     * @return string
+     */
+    public function getRemunerationForfaitaireMemo()
+    {
+        return $this->remuneration_forfaitaire_memo;
+    }
+
+    /**
+     * @param string $remuneration_forfaitaire_memo
+     */
+    public function setRemunerationForfaitaireMemo($remuneration_forfaitaire_memo)
+    {
+        $this->remuneration_forfaitaire_memo = $remuneration_forfaitaire_memo;
+    }
+
+    /**
      * @return int
      */
     public function getEnseignantMatricule()
@@ -643,17 +435,193 @@ class Forfait extends EntityAbstract implements LigneInterface
     /**
      * @return string
      */
-    public function getRemunerationForfaitaireMemo()
+    public function getBordereauAnneeUniversitaire()
     {
-        return $this->remuneration_forfaitaire_memo;
+        return $this->bordereau_annee_universitaire;
     }
 
     /**
-     * @param string $remuneration_forfaitaire_memo
+     * @param string $bordereau_annee_universitaire
      */
-    public function setRemunerationForfaitaireMemo($remuneration_forfaitaire_memo)
+    public function setBordereauAnneeUniversitaire($bordereau_annee_universitaire)
     {
-        $this->remuneration_forfaitaire_memo = $remuneration_forfaitaire_memo;
+        $this->bordereau_annee_universitaire = $bordereau_annee_universitaire;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUniteNumero()
+    {
+        return $this->unite_numero;
+    }
+
+    /**
+     * @param int $unite_numero
+     */
+    public function setUniteNumero($unite_numero)
+    {
+        $this->unite_numero = $unite_numero;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUniteCode()
+    {
+        return $this->unite_code;
+    }
+
+    /**
+     * @param string $unite_code
+     */
+    public function setUniteCode($unite_code)
+    {
+        $this->unite_code = $unite_code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUniteLibelle()
+    {
+        return $this->unite_libelle;
+    }
+
+    /**
+     * @param string $unite_libelle
+     */
+    public function setUniteLibelle($unite_libelle)
+    {
+        $this->unite_libelle = $unite_libelle;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUniteEcts()
+    {
+        return $this->unite_ects;
+    }
+
+    /**
+     * @param int $unite_ects
+     */
+    public function setUniteEcts($unite_ects)
+    {
+        $this->unite_ects = $unite_ects;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSemestreCode()
+    {
+        return $this->semestre_code;
+    }
+
+    /**
+     * @param int $semestre_code
+     */
+    public function setSemestreCode($semestre_code)
+    {
+        $this->semestre_code = $semestre_code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSemestreLibelle()
+    {
+        return $this->semestre_libelle;
+    }
+
+    /**
+     * @param string $semestre_libelle
+     */
+    public function setSemestreLibelle($semestre_libelle)
+    {
+        $this->semestre_libelle = $semestre_libelle;
+    }
+
+    /**
+     * @return int
+     */
+    public function getGroupeCode()
+    {
+        return $this->groupe_code;
+    }
+
+    /**
+     * @param int $groupe_code
+     */
+    public function setGroupeCode($groupe_code)
+    {
+        $this->groupe_code = $groupe_code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGroupeLibelle()
+    {
+        return $this->groupe_libelle;
+    }
+
+    /**
+     * @param string $groupe_libelle
+     */
+    public function setGroupeLibelle($groupe_libelle)
+    {
+        $this->groupe_libelle = $groupe_libelle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getModalite()
+    {
+        return $this->modalite;
+    }
+
+    /**
+     * @param string $modalite
+     */
+    public function setModalite($modalite)
+    {
+        $this->modalite = $modalite;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRegroupementProgrammeCode()
+    {
+        return $this->regroupement_programme_code;
+    }
+
+    /**
+     * @param int $regroupement_programme_code
+     */
+    public function setRegroupementProgrammeCode($regroupement_programme_code)
+    {
+        $this->regroupement_programme_code = $regroupement_programme_code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRegroupementProgrammeLibelle()
+    {
+        return $this->regroupement_programme_libelle;
+    }
+
+    /**
+     * @param string $regroupement_programme_libelle
+     */
+    public function setRegroupementProgrammeLibelle($regroupement_programme_libelle)
+    {
+        $this->regroupement_programme_libelle = $regroupement_programme_libelle;
     }
 
     /**
@@ -663,8 +631,8 @@ class Forfait extends EntityAbstract implements LigneInterface
     public function isNFO()
     {
         $NFO = array(
-            'Forfait de coordination pédagogique',
-            'Forfait accompagnement VAE / VAP85 / VES',
+            'Coordination pédagogique',
+            'Accompagnement VAE / VAP85 / VES',
         );
 
         return in_array($this->getRemunerationForfaitaireLibelle(), $NFO);
