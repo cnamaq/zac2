@@ -14,9 +14,10 @@ abstract class ContainerAbstract extends DicAware implements CompositeInterface
 
     /** @var  Renderable */
     protected $renderer;
-    /**
-     * @var ContainerAbstract[]
-     */
+
+    /** @var  ContainerAbstract */
+    protected $parent;
+    /** @var  ContainerAbstract[] */
     protected $containers = array();
 
     /**
@@ -49,6 +50,22 @@ abstract class ContainerAbstract extends DicAware implements CompositeInterface
     }
 
     /**
+     * @return ContainerAbstract
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param ContainerAbstract $parent
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+    }
+
+    /**
      * @return ContainerAbstract[]
      */
     public function getContainers()
@@ -61,7 +78,9 @@ abstract class ContainerAbstract extends DicAware implements CompositeInterface
      */
     public function setContainers(array $containers)
     {
-        $this->containers = $containers;
+        foreach ($containers as $container) {
+            $this->add($container);
+        }
     }
 
     /**
@@ -69,6 +88,7 @@ abstract class ContainerAbstract extends DicAware implements CompositeInterface
      */
     public function add(ContainerAbstract $container)
     {
+        $container->setParent($this);
         $this->containers[] = $container;
     }
 
