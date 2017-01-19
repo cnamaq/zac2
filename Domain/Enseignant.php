@@ -10,134 +10,89 @@ use Zac2\Entity\EntityAbstract;
 
 class Enseignant extends EntityAbstract
 {
-    /**
-     * @var int
-     */
+
+    /** @var  int */
+    protected $enseignant_matricule;
+    /** @var  int */
     protected $enseignant_code;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_nom;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_nom_usage;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_prenom;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_sexe;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_civilite;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_profil;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_categorie;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_situation_famille;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_numero_secu;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_date_naissance;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_lieu_naissance;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_adresse_zone1;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_code_postal;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_ville;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_pays;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_telephone_pers;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_telephone_port;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_mel_pers;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_mel_pro;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_fonctionnaire;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_retraite;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_independant;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_autre_salarie;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_actif;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_nationalite;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_login_pleiad;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_mel_pleiad;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_identifiant_pleiad;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_adresse_zone2;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_telephone_pro;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $enseignant_memo_agrement;
+
+    /**
+     * @return int
+     */
+    public function getEnseignantMatricule()
+    {
+        return $this->enseignant_matricule;
+    }
+
+    /**
+     * @param int $enseignant_matricule
+     */
+    public function setEnseignantMatricule($enseignant_matricule)
+    {
+        $this->enseignant_matricule = intval($enseignant_matricule);
+    }
 
     /**
      * @return mixed

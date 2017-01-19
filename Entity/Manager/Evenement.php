@@ -16,6 +16,7 @@ use Zac2\Filter\Multi\Multi;
 
 class Evenement extends DicAware implements ManagerInterface
 {
+
     public function getEm($entity, Multi $filtre)
     {
         /** @var Manager $em */

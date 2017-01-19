@@ -7,7 +7,9 @@ namespace Zac2\Entity\Manager;
 
 
 use Zac2\Common\DicAware;
+use Zac2\Data\Request\SqlString;
 use Zac2\Domain\Enseignant;
+use Zac2\Entity\Manager;
 use Zac2\Filter\Multi\Critere;
 use Zac2\Filter\Multi\Multi;
 
@@ -21,6 +23,26 @@ class EnseignantAnnee extends DicAware implements ManagerInterface
     public function getIdLst(Multi $filtre)
     {
         return array_keys($this->getMultiOptions($filtre));
+    }
+
+    public function getEm($entity, Multi $filtre)
+    {
+        /** @var Manager $em */
+        $em = $this->getDic()->get('entitymanager.gescicca.requeteur');
+        $dataRequest = new SqlString();
+        // le filtrage doit être appliqué ici à la main
+        $sql = "SELECT    m.enseignant_matricule, e.*
+                FROM      enseignant_aqu e
+                LEFT JOIN matricule_aqu m
+                ON        m.centre_code = 285
+                AND       m.enseignant_code = e.enseignant_code";
+        if ($filtre->getSql()) {
+            $sql .= ' WHERE ' . $filtre->getSql('e.');
+        }
+        $dataRequest->setSql($sql);
+        $em->setDataRequestAdapter($dataRequest);
+
+        return $em;
     }
 
     /**
@@ -72,13 +94,10 @@ class EnseignantAnnee extends DicAware implements ManagerInterface
             ));
             $filtre->addCritere($critere);
         }
-        $entityManager = $this->getDic()->get('entitymanager.gescicca.requeteur');
-        $entityManager->getDataRequestAdapter()->from('enseignant_aqu');
-
         $filtre->removeCritere('annee');
 
         /** @var Enseignant[] $result */
-        $result = $entityManager->get('Zac2\Domain\Enseignant', $filtre);
+        $result = $this->getEm($entity, $filtre)->get('Zac2\Domain\Enseignant', $filtre);
 
         $enseignantLst = array();
         foreach ($result as $enseignant) {
