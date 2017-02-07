@@ -174,6 +174,10 @@ class PriseEnCharge extends EntityAbstract implements LigneInterface
     protected $formation_numero;
     /** @var  string */
     protected $formation_libelle;
+    /** @var  string */
+    protected $inscription_etat;
+    /** @var  string */
+    protected $inscription_unite_etat;
 
     /**
      * @return string
@@ -978,6 +982,38 @@ class PriseEnCharge extends EntityAbstract implements LigneInterface
     public function setFormationLibelle($formation_libelle)
     {
         $this->formation_libelle = $formation_libelle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInscriptionEtat()
+    {
+        return $this->inscription_etat;
+    }
+
+    /**
+     * @param string $inscription_etat
+     */
+    public function setInscriptionEtat($inscription_etat)
+    {
+        $this->inscription_etat = $inscription_etat;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInscriptionUniteEtat()
+    {
+        return $this->inscription_unite_etat;
+    }
+
+    /**
+     * @param string $inscription_unite_etat
+     */
+    public function setInscriptionUniteEtat($inscription_unite_etat)
+    {
+        $this->inscription_unite_etat = $inscription_unite_etat;
     }
 
 }

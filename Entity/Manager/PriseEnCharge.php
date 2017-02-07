@@ -27,13 +27,15 @@ class PriseEnCharge extends DicAware implements ManagerInterface
                           iu.modalite,
                           iu.groupe_code,
                           iu.sousgroupe_code,
+                          iu.inscription_unite_etat,
                           u.unite_code,
                           u.unite_nb_heure,
                           u.unite_ects,
                           uo.regroupement_programme_code,
                           uo.regroupement_programme_libelle,
                           i.formation_numero,
-                          i.formation_libelle
+                          i.formation_libelle,
+                          i.inscription_etat
                 FROM      prise_en_charge_aqu p
                 LEFT JOIN inscription_aqu i
                 ON        i.centre_code     = 285
