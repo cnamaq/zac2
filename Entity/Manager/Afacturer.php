@@ -23,13 +23,17 @@ class Afacturer extends DicAware implements ManagerInterface
         $em = $this->getDic()->get('entitymanager.gescicca.requeteur');
         $dataRequest = new SqlString();
         // le filtrage doit être appliqué ici à la main
-        $sql = "SELECT    a_facturer_aqu.*,
-                          f.facture_date
-                FROM      a_facturer_aqu
-                JOIN      facture_detail_aqu fd
-                ON        fd.facture_detail_numero = facture_detail_aqu.facture_detail_numero
-                JOIN      facture_detail_aqu f
-                ON        f.facture_numero = fd.facture_numero";
+        $sql = "SELECT    *
+                FROM      (
+                            SELECT    af.*,
+                                      f.facture_date,
+                                      f.facture_date_impression
+                            FROM      a_facturer_aqu af
+                            JOIN      facture_detail_aqu fd
+                            ON        fd.facture_detail_numero = facture_detail_aqu.facture_detail_numero
+                            JOIN      facture_detail_aqu f
+                            ON        f.facture_numero = fd.facture_numero
+                ) a_facturer";
         if ($filtre->getSql()) {
             $sql .= ' WHERE ' . $filtre->getSql();
         }
