@@ -30,8 +30,8 @@ class Afacturer extends DicAware implements ManagerInterface
                                       f.facture_date_impression
                             FROM      a_facturer_aqu af
                             JOIN      facture_detail_aqu fd
-                            ON        fd.facture_detail_numero = facture_detail_aqu.facture_detail_numero
-                            JOIN      facture_detail_aqu f
+                            ON        fd.facture_detail_numero = af.facture_detail_numero
+                            JOIN      facture_aqu f
                             ON        f.facture_numero = fd.facture_numero
                 ) a_facturer";
         if ($filtre->getSql()) {
