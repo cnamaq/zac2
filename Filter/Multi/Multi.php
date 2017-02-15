@@ -180,7 +180,7 @@ class Multi implements FilterInterface
             'greaterThanOrEqualTo' => '>=',
             'notEqualTo' => '!=',
             'isNull' => 'IS NULL',
-            'notIsNull' => 'IS NOT NULL',
+            'isNotNull' => 'IS NOT NULL',
             'greaterThan' => '>',
             'lessThan' => '<',
             'in' => 'IN',
@@ -196,11 +196,18 @@ class Multi implements FilterInterface
                 } else {
                     $value = "'" . $critere->getValue() . "'";
                 }
-                $sql[] = $prefix . $critere->getKey()
-                    . ' '
-                    . $operatorSQL[$critere->getOperator()]
-                    . ' '
-                    . $value;
+
+                if (in_array($critere->getOperator(), array('isNull', 'isNotNull'))) {
+                    $sql[] = $prefix . $critere->getKey()
+                           . ' '
+                           . $operatorSQL[$critere->getOperator()];
+                } else {
+                    $sql[] = $prefix . $critere->getKey()
+                           . ' '
+                           . $operatorSQL[$critere->getOperator()]
+                           . ' '
+                           . $value;
+                }
             }
         }
 
