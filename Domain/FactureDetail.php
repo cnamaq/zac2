@@ -11,128 +11,68 @@ use Zac2\Entity\EntityAbstract;
 
 class FactureDetail extends EntityAbstract implements LigneInterface
 {
-    /**
-     * @var integer
-     */
+
+    /** @var  int */
     protected $facture_detail_numero;
-    /**
-     * @var integer
-     */
+    /** @var  int */
     protected $facture_numero;
-    /**
-     * @var integer
-     */
+    /** @var  int */
     protected $annee;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $annee_universitaire;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $type_article;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $type_facture;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $centre_code;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $centre_libelle;
-    /**
-     * @var integer
-     */
+    /** @var  int */
     protected $unite_numero;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $unite_code;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $unite_libelle;
-    /**
-     * @var integer
-     */
+    /** @var  int */
     protected $semestre_code;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $semestre_libelle;
-    /**
-     * @var integer
-     */
+    /** @var  int */
     protected $modalite_numero;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $modalite;
-    /**
-     * @var integer
-     */
+    /** @var  int */
     protected $auditeur_numero;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $auditeur_code;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $auditeur_nom;
-    /**
-     * @var string
-     *
-     */
+    /** @var  string */
     protected $auditeur_prenom;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $auditeur_nom_usage;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $type_client;
-    /**
-     * @var integer
-     */
+    /** @var  int */
     protected $entreprise_numero;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $entreprise_nom;
     /** @var  string */
     protected $cra_nom;
-    /**
-     * @var float
-     */
+    /** @var  float */
     protected $taux_tva;
-    /**
-     * @var float
-     */
+    /** @var  float */
     protected $detail_fac_prix_unitaire;
-    /**
-     * @var float
-     */
+    /** @var  float */
     protected $detail_fac_quantite;
-    /**
-     * @var float
-     */
+    /** @var  float */
     protected $facture_montant_total;
-    /**
-     * @var DateTime
-     */
+    /** @var  DateTime */
     protected $facture_date;
-    /**
-     * @var int
-     */
+    /** @var  int */
     protected $regroupement_programme_code;
-    /**
-     * @var string
-     */
+    /** @var  string */
     protected $regroupement_programme_libelle;
 
     /**

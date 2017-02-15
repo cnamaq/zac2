@@ -26,7 +26,8 @@ class FactureDetail extends DicAware implements ManagerInterface
 
         $dataRequest = new SqlString();
         // le filtrage doit être appliqué ici à la main
-        $sql = "SELECT    facture_detail_aqu.facture_detail_numero,
+        $sql = "SELECT    f.facture_date,
+                          facture_detail_aqu.facture_detail_numero,
                           facture_detail_aqu.facture_numero,
                           facture_detail_aqu.annee,
                           facture_detail_aqu.annee_universitaire,
@@ -62,6 +63,8 @@ class FactureDetail extends DicAware implements ManagerInterface
                           u.regroupement_programme_code,
                           u.regroupement_programme_libelle
                 FROM      facture_detail_aqu
+                JOIN      facture_aqu f
+                ON        f.facture_numero = facture_detail_aqu.facture_numero
                 JOIN      inscription_aqu i
                 ON        i.centre_code     = facture_detail_aqu.centre_code
                 AND       i.auditeur_numero = facture_detail_aqu.auditeur_numero
