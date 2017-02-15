@@ -9,6 +9,7 @@ use Zac2\Entity\EntityAbstract;
 
 class Afacturer extends EntityAbstract
 {
+
     protected $a_facturer_numero;
     protected $a_facturer_type_operation;
     protected $a_facturer_date_operation;
@@ -33,6 +34,7 @@ class Afacturer extends EntityAbstract
     protected $prise_en_charge_numero;
     protected $date_echeance;
     protected $facture_detail_numero;
+    protected $facture_date;
     protected $a_facturer_date_export;
     protected $entreprise_numero;
     protected $entreprise_nom;
