@@ -86,7 +86,7 @@ class FactureDetail extends DicAware implements ManagerInterface
 
     public function get($entity, Multi $filtre)
     {
-        return $this->getEm($entity, $filtre)->get('\Zac2\Domain\PriseEnCharge', $filtre);
+        return $this->getEm($entity, $filtre)->get('\Zac2\Domain\FactureDetail', $filtre);
     }
 
     public function getArrayData($entity, Multi $filtre)
