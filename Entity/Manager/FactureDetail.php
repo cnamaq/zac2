@@ -11,19 +11,16 @@ namespace Zac2\Entity\Manager;
 
 use Zac2\Common\DicAware;
 use Zac2\Data\Request\SqlString;
+use Zac2\Entity\Manager;
 use Zac2\Filter\Multi\Multi;
 
 class FactureDetail extends DicAware implements ManagerInterface
 {
-    /**
-     * @param string $entity
-     * @param Multi $filtre
-     * @return array
-     */
-    public function getArrayData($entity, Multi $filtre)
-    {
-        $em = $this->getDic()->get('entitymanager.gescicca.requeteur');
 
+    public function getEm($entity, Multi $filtre)
+    {
+        /** @var Manager $em */
+        $em = $this->getDic()->get('entitymanager.gescicca.requeteur');
         $dataRequest = new SqlString();
         // le filtrage doit être appliqué ici à la main
         $sql = "SELECT    f.facture_date,
@@ -84,20 +81,17 @@ class FactureDetail extends DicAware implements ManagerInterface
         $dataRequest->setSql($sql);
         $em->setDataRequestAdapter($dataRequest);
 
-        $result = $em->get('\Zac2\Domain\\' . ucfirst($entity), $filtre);
-
-        $lignes = [];
-        /** @var \Zac2\Domain\FactureDetail $row */
-        foreach ($result as $row) {
-            $lignes[$row->getAnnee().$row->getCentreCode().$row->getUniteNumero().$row->getSemestreCode().$row->getAuditeurCode()] = $row;
-        }
-
-        return $lignes;
+        return $em;
     }
 
     public function get($entity, Multi $filtre)
     {
-        return $this->getArrayData($entity, $filtre);
+        return $this->getEm($entity, $filtre)->get('\Zac2\Domain\PriseEnCharge', $filtre);
+    }
+
+    public function getArrayData($entity, Multi $filtre)
+    {
+        return $this->getEm($entity, $filtre)->getArrayData($entity, $filtre);
     }
 
 }
