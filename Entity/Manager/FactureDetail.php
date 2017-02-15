@@ -27,6 +27,8 @@ class FactureDetail extends DicAware implements ManagerInterface
         $dataRequest = new SqlString();
         // le filtrage doit être appliqué ici à la main
         $sql = "SELECT    f.facture_date,
+                          f.regroupement_comptable_numero,
+                          f.regroupement_comptable_libelle,
                           facture_detail_aqu.facture_detail_numero,
                           facture_detail_aqu.facture_numero,
                           facture_detail_aqu.annee,

@@ -74,6 +74,11 @@ class FactureDetail extends EntityAbstract implements LigneInterface
     protected $regroupement_programme_code;
     /** @var  string */
     protected $regroupement_programme_libelle;
+    /** @var  int */
+    protected $regroupement_comptable_numero;
+    /** @var  string */
+    protected $regroupement_comptable_libelle;
+
 
     /**
      * @return float
@@ -545,6 +550,38 @@ class FactureDetail extends EntityAbstract implements LigneInterface
     public function setFactureDate($facture_date)
     {
         $this->facture_date = new DateTime($facture_date);
+    }
+
+    /**
+     * @return int
+     */
+    public function getRegroupementComptableNumero()
+    {
+        return $this->regroupement_comptable_numero;
+    }
+
+    /**
+     * @param int $regroupement_comptable_numero
+     */
+    public function setRegroupementComptableNumero($regroupement_comptable_numero)
+    {
+        $this->regroupement_comptable_numero = $regroupement_comptable_numero;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRegroupementComptableLibelle()
+    {
+        return $this->regroupement_comptable_libelle;
+    }
+
+    /**
+     * @param string $regroupement_comptable_libelle
+     */
+    public function setRegroupementComptableLibelle($regroupement_comptable_libelle)
+    {
+        $this->regroupement_comptable_libelle = $regroupement_comptable_libelle;
     }
 
     /**
