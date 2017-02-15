@@ -477,6 +477,22 @@ class Afacturer extends EntityAbstract
     /**
      * @return mixed
      */
+    public function getFactureDate()
+    {
+        return $this->facture_date;
+    }
+
+    /**
+     * @param mixed $facture_date
+     */
+    public function setFactureDate($facture_date)
+    {
+        $this->facture_date = $facture_date;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getEntrepriseNumero()
     {
         return $this->entreprise_numero;
