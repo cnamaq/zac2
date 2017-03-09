@@ -23,7 +23,8 @@ class FactureDetail extends DicAware implements ManagerInterface
         $em = $this->getDic()->get('entitymanager.gescicca.requeteur');
         $dataRequest = new SqlString();
         // le filtrage doit être appliqué ici à la main
-        $sql = "SELECT    f.facture_date,
+        $sql = "SELECT    DISTINCT
+                          f.facture_date,
                           f.regroupement_comptable_numero,
                           f.regroupement_comptable_libelle,
                           facture_detail_aqu.facture_detail_numero,
@@ -68,6 +69,7 @@ class FactureDetail extends DicAware implements ManagerInterface
                 ON        i.centre_code     = facture_detail_aqu.centre_code
                 AND       i.auditeur_numero = facture_detail_aqu.auditeur_numero
                 AND       i.annee           = facture_detail_aqu.annee
+                AND       i.semestre_code   = facture_detail_aqu.semestre_code
                 JOIN      centre_aqu c
                 ON        c.centre_libelle = i.centre_attachement_libelle
                 LEFT JOIN unite_ouverte_aqu u
