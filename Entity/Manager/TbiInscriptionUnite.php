@@ -35,7 +35,7 @@ class TbiInscriptionUnite extends DicAware implements ManagerInterface
                 JOIN      auditeur_aqu AS a
                 ON        a.auditeur_numero = insc.auditeur_numero
                 JOIN      unite_ouverte_aqu AS uo
-                AND       uo.annee                = i.annee
+                ON        uo.annee                = i.annee
                 AND       uo.unite_numero         = i.unite_numero
                 AND       uo.groupe_code          = i.groupe_code
                 AND       uo.semestre_code        = i.semestre_code
