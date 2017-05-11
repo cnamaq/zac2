@@ -46,7 +46,7 @@ class TbiInscriptionUnite extends DicAware implements ManagerInterface
                 ON        d.diplome_numero = insc.inscription_diplome_prepare_numero
                 WHERE     i.inscription_unite_etat = 'Validée'";
         if ($filtre->getSql()) {
-            $sql .= ' WHERE ' . $filtre->getSql('i.');
+            $sql .= ' AND ' . $filtre->getSql('i.');
         }
         $dataRequest->setSql($sql);
         $em->setDataRequestAdapter($dataRequest);
