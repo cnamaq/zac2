@@ -88,8 +88,10 @@ class FactureDetail extends DicAware implements ManagerInterface
                 AND       u.annee         = facture_detail_aqu.annee
                 AND       u.centre_code   = facture_detail_aqu.centre_code
                 AND       u.groupe_code   = iu.groupe_code
-                LEFT JOIN type_tarif_aqu tta
-                ON        (tta.type_tarif_code = iu.type_tarif_code OR tta.type_tarif_code = i.type_tarif_code)
+                LEFT JOIN type_tarif_aqu tta ON tta.type_tarif_code =
+                    CASE
+                        WHEN (i.formation_numero IS NULL AND facture_detail_aqu.unite_numero IS NOT NULL) THEN iu.type_tarif_code ELSE i.type_tarif_code 
+                    END
                 LEFT JOIN financement
                 ON        financement.type_financement_code = tta.type_financement_code
         ";
