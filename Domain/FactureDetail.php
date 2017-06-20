@@ -89,15 +89,17 @@ class FactureDetail extends EntityAbstract implements LigneInterface
     /** @var  string */
     protected $regroupement_comptable_libelle;
     /** @var  string */
-    protected $type_financement_code;
-    /** @var  string */
-    protected $type_financement_libelle;
-    /** @var  string */
     protected $centre_attachement_libelle;
     /** @var  int */
     protected $formation_numero;
     /** @var  string */
     protected $formation_libelle;
+    /** @var  string */
+    protected $compte_analytique_actif;
+    /** @var  string */
+    protected $compte_analytique_libelle;
+    /** @var  string */
+    protected $compte_analytique_libelle_court;
 
     /**
      * @return float
@@ -750,38 +752,6 @@ class FactureDetail extends EntityAbstract implements LigneInterface
     /**
      * @return string
      */
-    public function getTypeFinancementCode()
-    {
-        return $this->type_financement_code;
-    }
-
-    /**
-     * @param string $type_financement_code
-     */
-    public function setTypeFinancementCode($type_financement_code)
-    {
-        $this->type_financement_code = $type_financement_code;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTypeFinancementLibelle()
-    {
-        return $this->type_financement_libelle;
-    }
-
-    /**
-     * @param string $type_financement_libelle
-     */
-    public function setTypeFinancementLibelle($type_financement_libelle)
-    {
-        $this->type_financement_libelle = $type_financement_libelle;
-    }
-
-    /**
-     * @return string
-     */
     public function getCentreAttachementLibelle()
     {
         return $this->centre_attachement_libelle;
@@ -825,6 +795,54 @@ class FactureDetail extends EntityAbstract implements LigneInterface
     public function setFormationLibelle($formation_libelle)
     {
         $this->formation_libelle = $formation_libelle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompteAnalytiqueActif()
+    {
+        return $this->compte_analytique_actif;
+    }
+
+    /**
+     * @param string $compte_analytique_actif
+     */
+    public function setCompteAnalytiqueActif($compte_analytique_actif)
+    {
+        $this->compte_analytique_actif = $compte_analytique_actif;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompteAnalytiqueLibelle()
+    {
+        return $this->compte_analytique_libelle;
+    }
+
+    /**
+     * @param string $compte_analytique_libelle
+     */
+    public function setCompteAnalytiqueLibelle($compte_analytique_libelle)
+    {
+        $this->compte_analytique_libelle = $compte_analytique_libelle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompteAnalytiqueLibelleCourt()
+    {
+        return $this->compte_analytique_libelle_court;
+    }
+
+    /**
+     * @param string $compte_analytique_libelle_court
+     */
+    public function setCompteAnalytiqueLibelleCourt($compte_analytique_libelle_court)
+    {
+        $this->compte_analytique_libelle_court = $compte_analytique_libelle_court;
     }
 
 }

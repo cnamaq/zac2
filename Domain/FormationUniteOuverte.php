@@ -29,6 +29,12 @@ class FormationUniteOuverte extends EntityAbstract
      * @var string
      */
     protected $regroupement_programme_libelle;
+    /** @var  string */
+    protected $compte_analytique_actif;
+    /** @var  string */
+    protected $compte_analytique_libelle;
+    /** @var  string */
+    protected $compte_analytique_libelle_court;
 
     /**
      * @return string
@@ -108,6 +114,54 @@ class FormationUniteOuverte extends EntityAbstract
     public function setAnneeUniversitaire($annee_universitaire)
     {
         $this->annee_universitaire = $annee_universitaire;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompteAnalytiqueActif()
+    {
+        return $this->compte_analytique_actif;
+    }
+
+    /**
+     * @param string $compte_analytique_actif
+     */
+    public function setCompteAnalytiqueActif($compte_analytique_actif)
+    {
+        $this->compte_analytique_actif = $compte_analytique_actif;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompteAnalytiqueLibelle()
+    {
+        return $this->compte_analytique_libelle;
+    }
+
+    /**
+     * @param string $compte_analytique_libelle
+     */
+    public function setCompteAnalytiqueLibelle($compte_analytique_libelle)
+    {
+        $this->compte_analytique_libelle = $compte_analytique_libelle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompteAnalytiqueLibelleCourt()
+    {
+        return $this->compte_analytique_libelle_court;
+    }
+
+    /**
+     * @param string $compte_analytique_libelle_court
+     */
+    public function setCompteAnalytiqueLibelleCourt($compte_analytique_libelle_court)
+    {
+        $this->compte_analytique_libelle_court = $compte_analytique_libelle_court;
     }
 
 }

@@ -23,11 +23,20 @@ class FormationUniteOuverte extends DicAware
         $dataRequest = new SqlString();
         // le filtrage doit être appliqué ici à la main
         $sql = "SELECT    fuo.*,
-                          fp.formation_code
+                          fp.formation_code,
+                          uo.compte_analytique_actif,
+                          uo.compte_analytique_libelle_court,
+                          uo.compte_analytique_libelle
                 FROM      formation_unite_ouverte_aqu fuo
                 LEFT JOIN formation_proposee_aqu fp
                 ON        fuo.formation_proposee_code = fp.formation_proposee_code
                 AND       fuo.annee_formation = fp.annee_formation
+                LEFT JOIN unite_ouverte_aqu  uo
+                ON uo.centre_code = fuo.centre_code
+                AND uo.annee_universitaire = fuo.annee_universitaire
+                AND uo.unite_numero = fuo.unite_numero
+                AND uo.groupe_code = fuo.groupe_code
+                AND uo.semestre_code = fuo.semestre_code
         ";
         $dataRequest->setSql($sql);
         $em->setDataRequestAdapter($dataRequest);
