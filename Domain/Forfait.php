@@ -1,7 +1,8 @@
 <?php
 namespace Zac2\Domain;
 
-use Zac2\Analytique\LigneInterface;
+use Zac2\Analytique2\LigneInterface;
+use Zac2\Analytique2\PieceLigneTrait;
 use Zac2\Common\DateTime;
 use Zac2\Entity\EntityAbstract;
 
@@ -10,7 +11,7 @@ use Zac2\Entity\EntityAbstract;
  */
 class Forfait extends EntityAbstract implements LigneInterface
 {
-
+    use PieceLigneTrait;
     /** @var  int */
     protected $annee;
     /** @var  string */
@@ -644,38 +645,6 @@ class Forfait extends EntityAbstract implements LigneInterface
     function getMontant()
     {
         return $this->getRemunerationForfaitaireMontantTotal();
-    }
-
-    /**
-     * @return string
-     */
-    function getCodeForSiteAnalytique()
-    {
-        return ($this->getGroupeCode() == '0') ? 'AQU' : $this->getGroupeLibelle();
-    }
-
-    /**
-     * @return string
-     */
-    function getCodeForComposanteAnalytique()
-    {
-        return $this->getRegroupementProgrammeLibelle();
-    }
-
-    /**
-     * @return string
-     */
-    function getCodeForModaliteAnalytique()
-    {
-        return $this->getModalite();
-    }
-
-    /**
-     * @return string
-     */
-    function getCodeForProjetAnalytique()
-    {
-        return 'default';
     }
 
 }
