@@ -28,7 +28,11 @@ class Emargement extends DicAware implements ManagerInterface
         $dataRequest = new SqlString();
         // le filtrage doit être appliqué ici à la main
         $sql = "SELECT e.*, 
-                uo.regroupement_programme_code, uo.regroupement_programme_libelle
+                uo.regroupement_programme_code,
+                uo.regroupement_programme_libelle,
+                uo.compte_analytique_actif,
+                uo.compte_analytique_libelle_court,
+                uo.compte_analytique_libelle
             FROM emargement_aqu as e
             LEFT JOIN unite_ouverte_aqu as uo ON uo.centre_code = e.centre_code 
                 AND uo.annee = e.annee 
