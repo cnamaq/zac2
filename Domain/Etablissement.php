@@ -32,6 +32,16 @@ class Etablissement
      * @Column(type="string", name="libelle_gescicca")
      */
     protected $libelleGescicca;
+    /**
+     * @var string
+     * @Column(type="string", name="libelle_compta_generale")
+     */
+    protected $libelleComptaGenerale;
+    /**
+     * @var string
+     * @Column(type="string", name="numero_compte_compta_generale")
+     */
+    protected $numeroCompteComptaGenerale;
 
     /**
      * @return int
@@ -111,6 +121,38 @@ class Etablissement
     public function setLibelleGescicca($libelleGescicca)
     {
         $this->libelleGescicca = $libelleGescicca;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLibelleComptaGenerale()
+    {
+        return $this->libelleComptaGenerale;
+    }
+
+    /**
+     * @param string $libelleComptaGenerale
+     */
+    public function setLibelleComptaGenerale($libelleComptaGenerale)
+    {
+        $this->libelleComptaGenerale = $libelleComptaGenerale;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumeroCompteComptaGenerale()
+    {
+        return $this->numeroCompteComptaGenerale;
+    }
+
+    /**
+     * @param string $numeroCompteComptaGenerale
+     */
+    public function setNumeroCompteComptaGenerale($numeroCompteComptaGenerale)
+    {
+        $this->numeroCompteComptaGenerale = $numeroCompteComptaGenerale;
     }
 
 }
