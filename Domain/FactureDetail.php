@@ -845,4 +845,14 @@ class FactureDetail extends EntityAbstract implements LigneInterface
         $this->compte_analytique_libelle_court = $compte_analytique_libelle_court;
     }
 
+    public function dump()
+    {
+        $result = [];
+        foreach (get_object_vars($this) as $key => $value) {
+            $result[] = $key . ' : ' . $value;
+        }
+
+        return $result;
+    }
+
 }
