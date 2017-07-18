@@ -31,29 +31,19 @@ class BulletinLigne
     protected $compteLibellePattern;
     /**
      * @var string
-     * @ORM\Column(type="string", name="compte_auxiliaire_pattern")
+     * @ORM\Column(type="string", name="compte_auxiliaire_pattern", nullable=true)
      */
     protected $compteAuxiliairePattern;
     /**
      * @var string
-     * @ORM\Column(type="string", name="compte_type")
+     * @ORM\Column(type="string", name="compte_type", nullable=true)
      */
     protected $compteType;
     /**
      * @var string
-     * @ORM\Column(type="string", name="sens")
+     * @ORM\Column(type="string", name="sens", nullable=true)
      */
     protected $sens;
-    /**
-     * @var string
-     * @ORM\Column(type="string", name="caisse_libelle")
-     */
-    protected $caisseLibelle;
-    /**
-     * @var string
-     * @ORM\Column(type="string", name="caisse_numero")
-     */
-    protected $caisseNumero;
 
     /**
      * @return int
@@ -164,38 +154,6 @@ class BulletinLigne
     public function setSens($sens)
     {
         $this->sens = $sens;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCaisseLibelle()
-    {
-        return $this->caisseLibelle;
-    }
-
-    /**
-     * @param string $caisseLibelle
-     */
-    public function setCaisseLibelle($caisseLibelle)
-    {
-        $this->caisseLibelle = $caisseLibelle;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCaisseNumero()
-    {
-        return $this->caisseNumero;
-    }
-
-    /**
-     * @param string $caisseNumero
-     */
-    public function setCaisseNumero($caisseNumero)
-    {
-        $this->caisseNumero = $caisseNumero;
     }
 
 }
