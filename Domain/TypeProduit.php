@@ -3,42 +3,43 @@
 
 namespace Zac2\Domain;
 
+use Doctrine\ORM\Mapping as ORM;
 
 use Zac2\Entity\EntityAbstract;
 
 /**
- * @Entity @Table(name="type_produit_comptable")
+ * @ORM\Entity @ORM\Table(name="type_produit_comptable")
  */
 class TypeProduit extends EntityAbstract
 {
     /**
      * @var int
-     * @Id() @Column(type="integer") @GeneratedValue())
+     * @ORM\Id() @ORM\Column(type="integer") @ORM\GeneratedValue())
      */
     protected $id;
     /**
      * @var string
-     * @Column(type="string")
+     * @ORM\Column(type="string")
      */
     protected $libelle;
     /**
      * @var string
-     * @Column(type="string")
+     * @ORM\Column(type="string")
      */
     protected $compte7_ind;
     /**
      * @var string
-     * @Column(type="string")
+     * @ORM\Column(type="string")
      */
     protected $compte7_pec;
     /**
      * @var string
-     * @Column(type="string")
+     * @ORM\Column(type="string")
      */
     protected $analytique_budget;
     /**
      * @var string
-     * @Column(type="string")
+     * @ORM\Column(type="string")
      */
     protected $analytique_produit;
 

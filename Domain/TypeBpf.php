@@ -3,29 +3,31 @@
 
 namespace Zac2\Domain;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
- * @Entity @Table(name="type_bpf")
+ * @ORM\Entity @ORM\Table(name="type_bpf")
  */
 class TypeBpf
 {
     /**
      * @var int
-     * @Id() @Column(type="integer") @GeneratedValue())
+     * @ORM\Id() @ORM\Column(type="integer") @ORM\GeneratedValue())
      */
     protected $id;
     /**
      * @var string
-     * @Column(type="string")
+     * @ORM\Column(type="string")
      */
     protected $code_bpf;
     /**
      * @var string
-     * @Column(type="string")
+     * @ORM\Column(type="string")
      */
     protected $libelle;
     /**
      * @var string
-     * @Column(type="string")
+     * @ORM\Column(type="string")
      */
     protected $code_compta_analytique;
 

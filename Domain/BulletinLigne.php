@@ -2,54 +2,56 @@
 
 namespace Zac2\Domain;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
- * @Entity @Table(name="bulletin_ligne")
+ * @ORM\Entity @ORM\Table(name="bulletin_ligne")
  */
 class BulletinLigne
 {
     /**
      * @var int
-     * @Id() @Column(type="integer") @GeneratedValue())
+     * @ORM\Id() @ORM\Column(type="integer") @ORM\GeneratedValue())
      */
     protected $id;
     /**
      * @var string
-     * @Column(type="string", name="colonne_id")
+     * @ORM\Column(type="string", name="colonne_id")
      */
     protected $colonneId;
     /**
      * @var string
-     * @Column(type="string", name="compte_numero_pattern")
+     * @ORM\Column(type="string", name="compte_numero_pattern")
      */
     protected $compteNumeroPattern;
     /**
      * @var string
-     * @Column(type="string", name="compte_libelle_pattern")
+     * @ORM\Column(type="string", name="compte_libelle_pattern")
      */
     protected $compteLibellePattern;
     /**
      * @var string
-     * @Column(type="string", name="compte_auxiliaire_pattern")
+     * @ORM\Column(type="string", name="compte_auxiliaire_pattern")
      */
     protected $compteAuxiliairePattern;
     /**
      * @var string
-     * @Column(type="string", name="compte_type")
+     * @ORM\Column(type="string", name="compte_type")
      */
     protected $compteType;
     /**
      * @var string
-     * @Column(type="string", name="sens")
+     * @ORM\Column(type="string", name="sens")
      */
     protected $sens;
     /**
      * @var string
-     * @Column(type="string", name="caisse_libelle")
+     * @ORM\Column(type="string", name="caisse_libelle")
      */
     protected $caisseLibelle;
     /**
      * @var string
-     * @Column(type="string", name="caisse_numero")
+     * @ORM\Column(type="string", name="caisse_numero")
      */
     protected $caisseNumero;
 

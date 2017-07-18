@@ -2,44 +2,46 @@
 
 namespace Zac2\Domain;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
- * @Entity @Table(name="etablissement")
+ * @ORM\Entity @ORM\Table(name="etablissement")
  */
 class Etablissement
 {
     /**
      * @var int
-     * @Id() @Column(type="integer") @GeneratedValue())
+     * @ORM\Id() @ORM\Column(type="integer") @ORM\GeneratedValue())
      */
     protected $id;
     /**
      * @var string
-     * @Column(type="string", name="code_nic_sage")
+     * @ORM\Column(type="string", name="code_nic_sage")
      */
     protected $codeNicSage;
     /**
      * @var string
-     * @Column(type="string", name="code_compta_analytique")
+     * @ORM\Column(type="string", name="code_compta_analytique")
      */
     protected $codeComptaAnalytique;
     /**
      * @var string
-     * @Column(type="string", name="code_centre_gescicca")
+     * @ORM\Column(type="string", name="code_centre_gescicca")
      */
     protected $codeCentreGescicca;
     /**
      * @var string
-     * @Column(type="string", name="libelle_gescicca")
+     * @ORM\Column(type="string", name="libelle_gescicca")
      */
     protected $libelleGescicca;
     /**
      * @var string
-     * @Column(type="string", name="libelle_compta_generale")
+     * @ORM\Column(type="string", name="libelle_compta_generale")
      */
     protected $libelleComptaGenerale;
     /**
      * @var string
-     * @Column(type="string", name="numero_compte_compta_generale")
+     * @ORM\Column(type="string", name="numero_compte_compta_generale")
      */
     protected $numeroCompteComptaGenerale;
 

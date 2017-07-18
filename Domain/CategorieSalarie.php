@@ -3,29 +3,31 @@
 
 namespace Zac2\Domain;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
- * @Entity @Table(name="categorie_salarie")
+ * @ORM\Entity @ORM\Table(name="categorie_salarie")
  */
 class CategorieSalarie
 {
     /**
      * @var int
-     * @Id() @Column(type="integer") @GeneratedValue())
+     * @ORM\Id() @ORM\Column(type="integer") @ORM\GeneratedValue())
      */
     protected $id;
     /**
      * @var string
-     * @Column(type="string", name="libelle_sage")
+     * @ORM\Column(type="string", name="libelle_sage")
      */
     protected $libelleSage;
     /**
      * @var string
-     * @Column(type="string", name="libelle_compta_generale")
+     * @ORM\Column(type="string", name="libelle_compta_generale")
      */
     protected $libelleComptaGenerale;
     /**
      * @var string
-     * @Column(type="string", name="numero_compte_compta_generale")
+     * @ORM\Column(type="string", name="numero_compte_compta_generale")
      */
     protected $numeroCompteComptaGenerale;
 

@@ -19,7 +19,13 @@ class DoctrineOrmFactory
     public function create(array $params)
     {
         $isDevMode = (isset($params['devMode'])) ? $params['devMode'] : true;
-        $config = Setup::createAnnotationMetadataConfiguration(array("/../Zac2/Domain"), $isDevMode);
+        $config = Setup::createAnnotationMetadataConfiguration(
+            array("/../Zac2/Domain"),
+            $isDevMode,
+            null,
+            null,
+            false
+        );
         $configDb = new \Doctrine\DBAL\Configuration();
         $conn = \Doctrine\DBAL\DriverManager::getConnection($params, $configDb);
 
