@@ -17,7 +17,7 @@ class TypeBpf
     protected $id;
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $code_bpf;
     /**

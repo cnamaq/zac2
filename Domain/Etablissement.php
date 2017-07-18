@@ -16,7 +16,7 @@ class Etablissement
     protected $id;
     /**
      * @var string
-     * @ORM\Column(type="string", name="code_nic_sage")
+     * @ORM\Column(type="string", name="code_nic_sage", nullable=true)
      */
     protected $codeNicSage;
     /**
@@ -26,7 +26,7 @@ class Etablissement
     protected $codeComptaAnalytique;
     /**
      * @var string
-     * @ORM\Column(type="string", name="code_centre_gescicca")
+     * @ORM\Column(type="string", name="code_centre_gescicca", nullable=true)
      */
     protected $codeCentreGescicca;
     /**
@@ -36,12 +36,12 @@ class Etablissement
     protected $libelleGescicca;
     /**
      * @var string
-     * @ORM\Column(type="string", name="libelle_compta_generale")
+     * @ORM\Column(type="string", name="libelle_compta_generale", nullable=true)
      */
     protected $libelleComptaGenerale;
     /**
      * @var string
-     * @ORM\Column(type="string", name="numero_compte_compta_generale")
+     * @ORM\Column(type="string", name="numero_compte_compta_generale", nullable=true)
      */
     protected $numeroCompteComptaGenerale;
 
