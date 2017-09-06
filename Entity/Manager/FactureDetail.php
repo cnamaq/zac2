@@ -69,13 +69,13 @@ class FactureDetail extends DicAware implements ManagerInterface
                           i.formation_numero,
                           i.formation_libelle
                 FROM      facture_detail_aqu
-                JOIN      facture_aqu f
+                LEFT JOIN facture_aqu f
                 ON        f.facture_numero = facture_detail_aqu.facture_numero
-                JOIN      inscription_aqu i
+                LEFT JOIN inscription_aqu i
                 ON        i.centre_code     = facture_detail_aqu.centre_code
                 AND       i.auditeur_numero = facture_detail_aqu.auditeur_numero
                 AND       i.annee           = facture_detail_aqu.annee
-                JOIN      centre_aqu c
+                LEFT JOIN centre_aqu c
                 ON        c.centre_libelle = i.centre_attachement_libelle
                 LEFT JOIN inscription_unite_aqu iu
                 ON        iu.centre_code      = facture_detail_aqu.centre_code
