@@ -189,8 +189,17 @@ class Multi implements FilterInterface
         foreach ($this->getCritereLst() as $critere) {
             if ($this->critereIsActive($critere)) {
                 if (preg_match('/_date/', $critere->getKey())) {
-                    $date = new DateTime($critere->getValue());
-                    $value = "convert(datetime, '{$date->format('d/m/Y')}')";
+                    if (is_array($critere->getValue())) {
+                        $values = [];
+                        foreach ($critere->getValue() as $dateToConvert) {
+                            $dateToConvert = new DateTime($dateToConvert);
+                            $values[] = "convert(datetime, '{$dateToConvert->format('d/m/Y')}')";
+                        }
+                        $value = '(' . implode(', ', $values) . ')';
+                    } else {
+                        $date = new DateTime($critere->getValue());
+                        $value = "convert(datetime, '{$date->format('d/m/Y')}')";
+                    }
                 } elseif (is_array($critere->getValue())) {
                     $value = "('" . implode("', '", $critere->getValue()) . "')";
                 } else {
