@@ -61,22 +61,35 @@ class FactureDetail extends DicAware implements ManagerInterface
                           c.centre_code,
                           c.centre_libelle,
                           u.regroupement_programme_code,
-                          u.regroupement_programme_libelle
+                          u.regroupement_programme_libelle,
+                          u.compte_analytique_libelle,
+                          u.compte_analytique_libelle_court,
+                          u.compte_analytique_actif,
+                          i.centre_attachement_libelle,
+                          i.formation_numero,
+                          i.formation_libelle
                 FROM      facture_detail_aqu
-                JOIN      facture_aqu f
+                LEFT JOIN facture_aqu f
                 ON        f.facture_numero = facture_detail_aqu.facture_numero
-                JOIN      inscription_aqu i
+                LEFT JOIN inscription_aqu i
                 ON        i.centre_code     = facture_detail_aqu.centre_code
                 AND       i.auditeur_numero = facture_detail_aqu.auditeur_numero
                 AND       i.annee           = facture_detail_aqu.annee
-                AND       i.semestre_code   = facture_detail_aqu.semestre_code
-                JOIN      centre_aqu c
+                LEFT JOIN centre_aqu c
                 ON        c.centre_libelle = i.centre_attachement_libelle
+                LEFT JOIN inscription_unite_aqu iu
+                ON        iu.centre_code      = facture_detail_aqu.centre_code
+                AND       iu.unite_numero     = facture_detail_aqu.unite_numero
+                AND       iu.auditeur_numero  = facture_detail_aqu.auditeur_numero
+                AND       iu.annee            = facture_detail_aqu.annee
+                AND       iu.semestre_code    = facture_detail_aqu.semestre_code
                 LEFT JOIN unite_ouverte_aqu u
                 ON        u.semestre_code = facture_detail_aqu.semestre_code
                 AND       u.unite_numero  = facture_detail_aqu.unite_numero
                 AND       u.annee         = facture_detail_aqu.annee
-                AND       u.centre_code   = facture_detail_aqu.centre_code";
+                AND       u.centre_code   = facture_detail_aqu.centre_code
+                AND       u.groupe_code   = iu.groupe_code
+        ";
         if ($filtre->getSql()) {
             $sql .= ' WHERE ' . $filtre->getSql();
         }

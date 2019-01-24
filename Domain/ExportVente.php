@@ -5,25 +5,26 @@
 
 namespace Zac2\Domain;
 
+use Doctrine\ORM\Mapping as ORM;
 
 use Zac2\Entity\EntityAbstract;
 
 /**
- * @Entity @Table(name="export_ventes")
+ * @ORM\Entity @ORM\Table(name="export_ventes")
  */
 class ExportVente extends EntityAbstract
 {
-    /** @Id @Column(type="integer") @GeneratedValue **/
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue **/
     protected $id;
-    /** @Column(type="string") **/
+    /** @ORM\Column(type="string") **/
     protected $dateExport;
-    /** @Column(type="integer") **/
+    /** @ORM\Column(type="integer") **/
     protected $factureNumero;
-    /** @Column(type="float") **/
+    /** @ORM\Column(type="float") **/
     protected $factureMontant;
-    /** @Column(type="string") **/
+    /** @ORM\Column(type="string") **/
     protected $factureRegroupementComptable;
-    /** @Column(type="string") **/
+    /** @ORM\Column(type="string") **/
     protected $factureDate;
 
     /**

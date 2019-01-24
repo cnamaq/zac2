@@ -5,12 +5,13 @@
 
 namespace Zac2\Domain;
 
-
-use Zac2\Analytique\LigneInterface;
+use Zac2\Analytique2\LigneInterface;
+use Zac2\Analytique2\PieceLigneTrait;
 use Zac2\Entity\EntityAbstract;
 
 class Emargement extends EntityAbstract implements LigneInterface
 {
+    use PieceLigneTrait;
 
     /**
      * @var array
@@ -1191,38 +1192,6 @@ class Emargement extends EntityAbstract implements LigneInterface
     public function setRegroupementProgrammeLibelle($regroupement_programme_libelle)
     {
         $this->regroupement_programme_libelle = $regroupement_programme_libelle;
-    }
-
-    /**
-     * @return string
-     */
-    function getCodeForSiteAnalytique()
-    {
-        return ($this->getGroupeCode() == '0') ? 'AQU' : $this->getGroupeLibelle();
-    }
-
-    /**
-     * @return string
-     */
-    function getCodeForComposanteAnalytique()
-    {
-        return $this->getRegroupementProgrammeLibelle();
-    }
-
-    /**
-     * @return string
-     */
-    function getCodeForModaliteAnalytique()
-    {
-        return $this->getModaliteLibelle();
-    }
-
-    /**
-     * @return string
-     */
-    function getCodeForProjetAnalytique()
-    {
-        return 'default';
     }
 
 }

@@ -24,6 +24,10 @@ class FactureDetail extends EntityAbstract implements LigneInterface
     protected $type_article;
     /** @var  string */
     protected $type_facture;
+    /** @var int */
+    protected $article_numero;
+    /** @var  string */
+    protected $article_libelle;
     /** @var  string */
     protected $centre_code;
     /** @var  string */
@@ -60,6 +64,10 @@ class FactureDetail extends EntityAbstract implements LigneInterface
     protected $entreprise_nom;
     /** @var  string */
     protected $cra_nom;
+    /** @var  int */
+    protected $client_numero;
+    /** @var  string */
+    protected $client_nom;
     /** @var  float */
     protected $taux_tva;
     /** @var  float */
@@ -68,6 +76,8 @@ class FactureDetail extends EntityAbstract implements LigneInterface
     protected $detail_fac_quantite;
     /** @var  float */
     protected $facture_montant_total;
+    /** @var  string */
+    protected $date_echeance;
     /** @var  DateTime */
     protected $facture_date;
     /** @var  int */
@@ -78,7 +88,18 @@ class FactureDetail extends EntityAbstract implements LigneInterface
     protected $regroupement_comptable_numero;
     /** @var  string */
     protected $regroupement_comptable_libelle;
-
+    /** @var  string */
+    protected $centre_attachement_libelle;
+    /** @var  int */
+    protected $formation_numero;
+    /** @var  string */
+    protected $formation_libelle;
+    /** @var  string */
+    protected $compte_analytique_actif;
+    /** @var  string */
+    protected $compte_analytique_libelle;
+    /** @var  string */
+    protected $compte_analytique_libelle_court;
 
     /**
      * @return float
@@ -646,6 +667,192 @@ class FactureDetail extends EntityAbstract implements LigneInterface
     public function setRegroupementProgrammeLibelle($regroupement_programme_libelle)
     {
         $this->regroupement_programme_libelle = $regroupement_programme_libelle;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArticleNumero()
+    {
+        return $this->article_numero;
+    }
+
+    /**
+     * @param mixed $article_numero
+     */
+    public function setArticleNumero($article_numero)
+    {
+        $this->article_numero = $article_numero;
+    }
+
+    /**
+     * @return string
+     */
+    public function getArticleLibelle()
+    {
+        return $this->article_libelle;
+    }
+
+    /**
+     * @param string $article_libelle
+     */
+    public function setArticleLibelle($article_libelle)
+    {
+        $this->article_libelle = $article_libelle;
+    }
+
+    /**
+     * @return int
+     */
+    public function getClientNumero()
+    {
+        return $this->client_numero;
+    }
+
+    /**
+     * @param int $client_numero
+     */
+    public function setClientNumero($client_numero)
+    {
+        $this->client_numero = $client_numero;
+    }
+
+    /**
+     * @return string
+     */
+    public function getClientNom()
+    {
+        return $this->client_nom;
+    }
+
+    /**
+     * @param string $client_nom
+     */
+    public function setClientNom($client_nom)
+    {
+        $this->client_nom = $client_nom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDateEcheance()
+    {
+        return $this->date_echeance;
+    }
+
+    /**
+     * @param string $date_echeance
+     */
+    public function setDateEcheance($date_echeance)
+    {
+        $this->date_echeance = $date_echeance;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCentreAttachementLibelle()
+    {
+        return $this->centre_attachement_libelle;
+    }
+
+    /**
+     * @param string $centre_attachement_libelle
+     */
+    public function setCentreAttachementLibelle($centre_attachement_libelle)
+    {
+        $this->centre_attachement_libelle = $centre_attachement_libelle;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFormationNumero()
+    {
+        return $this->formation_numero;
+    }
+
+    /**
+     * @param int $formation_numero
+     */
+    public function setFormationNumero($formation_numero)
+    {
+        $this->formation_numero = $formation_numero;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFormationLibelle()
+    {
+        return $this->formation_libelle;
+    }
+
+    /**
+     * @param string $formation_libelle
+     */
+    public function setFormationLibelle($formation_libelle)
+    {
+        $this->formation_libelle = $formation_libelle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompteAnalytiqueActif()
+    {
+        return $this->compte_analytique_actif;
+    }
+
+    /**
+     * @param string $compte_analytique_actif
+     */
+    public function setCompteAnalytiqueActif($compte_analytique_actif)
+    {
+        $this->compte_analytique_actif = $compte_analytique_actif;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompteAnalytiqueLibelle()
+    {
+        return $this->compte_analytique_libelle;
+    }
+
+    /**
+     * @param string $compte_analytique_libelle
+     */
+    public function setCompteAnalytiqueLibelle($compte_analytique_libelle)
+    {
+        $this->compte_analytique_libelle = $compte_analytique_libelle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompteAnalytiqueLibelleCourt()
+    {
+        return $this->compte_analytique_libelle_court;
+    }
+
+    /**
+     * @param string $compte_analytique_libelle_court
+     */
+    public function setCompteAnalytiqueLibelleCourt($compte_analytique_libelle_court)
+    {
+        $this->compte_analytique_libelle_court = $compte_analytique_libelle_court;
+    }
+
+    public function dump()
+    {
+        $result = [];
+        foreach (get_object_vars($this) as $key => $value) {
+            $result[] = $key . ' : ' . $value;
+        }
+
+        return $result;
     }
 
 }

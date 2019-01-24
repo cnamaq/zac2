@@ -5,25 +5,26 @@
 
 namespace Zac2\Domain;
 
+use Doctrine\ORM\Mapping as ORM;
 
 use Zac2\Entity\EntityAbstract;
 
 /**
- * @Entity @Table(name="fae_pca")
+ * @ORM\Entity @ORM\Table(name="fae_pca")
  */
 class FaePca extends EntityAbstract
 {
-    /** @Id @Column(type="integer") @GeneratedValue **/
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue **/
     protected $id;
-    /** @Column(type="integer") **/
+    /** @ORM\Column(type="integer") **/
     protected $priseEnChargeNumero;
-    /** @Column(type="integer") **/
+    /** @ORM\Column(type="integer") **/
     protected $annee;
-    /** @Column(type="float") **/
+    /** @ORM\Column(type="float") **/
     protected $CA;
-    /** @Column(type="float") **/
+    /** @ORM\Column(type="float") **/
     protected $FAE;
-    /** @Column(type="float") **/
+    /** @ORM\Column(type="float") **/
     protected $PCA;
 
     /**
