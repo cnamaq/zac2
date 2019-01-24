@@ -21,8 +21,8 @@ class XMLParser implements ParserInterface
         $xml    = $xml->children()->children();
         $nb     = $xml->count();
         for ($i = 0; $i < $nb; $i++) {
-            if ($xml->Requete[$i]) {
-                 $result[] = $this->simpleXMLToArray($xml->Requete[$i]);
+            if ($xml->Table1[$i]) {
+                 $result[] = $this->simpleXMLToArray($xml->Table1[$i]);
             }
         }
 
